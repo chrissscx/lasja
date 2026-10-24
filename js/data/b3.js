@@ -3,7 +3,7 @@
 const R = String.raw;
 
 P({ id: '75', b: 3, k: 'T',
-  text: R`Paigalolev osake hakkab liikuma ringjoont mööda raadiusega 1,30 m. Nurkkiirendus avaldub kujul: $\varepsilon = At^2 - Bt + C$ ($A = 120\ \text{rad·s}^{-4}$, $B = 48.0\ \text{rad·s}^{-3}$, $C = 10.0\ \text{rad·s}^{-2}$). Arvutada nurkkiiruse, pöördenurga ning kiirenduse tangentsiaal- ja normaalkomponendi väärtus ajahetkel 0,5 s.`,
+  text: R`Paigalolev osake hakkab liikuma ringjoont mööda raadiusega 1,30 m. Nurkkiirendus avaldub kujul: $\varepsilon = At^2 - Bt + C$ ($A = 120\ \text{rad}\cdot\text{s}^{-4}$, $B = 48.0\ \text{rad}\cdot\text{s}^{-3}$, $C = 10.0\ \text{rad}\cdot\text{s}^{-2}$). Arvutada nurkkiiruse, pöördenurga ning kiirenduse tangentsiaal- ja normaalkomponendi väärtus ajahetkel 0,5 s.`,
   given: R`<b>Andmed:</b> $\omega_0 = 0$, $\varphi_0 = 0$, $r = 1.3\ \text{m}$, $t = 0.5\ \text{s}$.<br><b>Leida:</b> $\omega$, $\varphi$, $a_t$, $a_n$.`,
   steps: [
     mc(R`Kuidas saada nurkkiirus, kui nurkkiirendus on aja funktsioon?`, [R`*$\omega = \int\varepsilon\,dt = \frac{At^3}{3} - \frac{Bt^2}{2} + Ct + \omega_0$`, R`$\omega = \dot\varepsilon = 2At - B$||Tuletis viiks vastupidises suunas. $\varepsilon = \dot\omega$, seega $\omega = \int\varepsilon\,dt$.`, R`$\omega = \varepsilon t$||See kehtiks ainult jääva $\varepsilon$ korral ja nullist alates.`], '', '', { wide: true }),
@@ -96,7 +96,7 @@ $$a = \sqrt{a_t^2 + a_n^2} = \sqrt{0.25 + 0.11} = 0.6\ \text{m/s}^2$$`,
 /* ---- Kodused ---- */
 
 P({ id: '73', b: 3, k: 'K',
-  text: R`Ketas raadiusega 30,0 cm pöörleb vastavalt võrrandile $\varphi = A - Bt + Ct^3$ ($A = 3.00\ \text{rad}$, $B = 1.00\ \text{rad·s}^{-1}$, $C = 0.100\ \text{rad·s}^{-3}$). Leida ketta äärepunktide joonkiirus, tangentsiaal-, normaal- ja kogukiirendus ajahetkel $t = 10.0\ \text{s}$.`,
+  text: R`Ketas raadiusega 30,0 cm pöörleb vastavalt võrrandile $\varphi = A - Bt + Ct^3$ ($A = 3.00\ \text{rad}$, $B = 1.00\ \text{rad}\cdot\text{s}^{-1}$, $C = 0.100\ \text{rad}\cdot\text{s}^{-3}$). Leida ketta äärepunktide joonkiirus, tangentsiaal-, normaal- ja kogukiirendus ajahetkel $t = 10.0\ \text{s}$.`,
   steps: [
     mc(R`Nurkkiirus ja nurkkiirendus:`, [R`*$\omega = -B + 3Ct^2$, $\varepsilon = 6Ct$`, R`$\omega = A - B + 3Ct^2$, $\varepsilon = 6Ct$||Konstandi $A$ tuletis on null.`, R`$\omega = -B + Ct^2$, $\varepsilon = 2Ct$||$\frac{d}{dt}t^3 = 3t^2$.`]),
     num(R`Nurkkiirus ajahetkel 10 s:`, 29, 'rad/s', { label: R`\omega` }),

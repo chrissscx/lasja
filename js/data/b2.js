@@ -52,7 +52,7 @@ Punktis (5; 0) on $t = 1\ \text{s}$: $\vec v = 5\vec i + 4\vec j$, $v = 6.4\ \te
 });
 
 P({ id: '46', b: 2, k: 'T',
-  text: R`Punktmassi kiirus $v = At^4 + Bt^2 + C$ ($A = 0.150\ \text{m·s}^{-5}$, $B = 1.00\ \text{m·s}^{-3}$, $C = 5.00\ \text{m·s}^{-1}$). Leida ajavahemikus 0 kuni 3,50 s läbitud teepikkus.`,
+  text: R`Punktmassi kiirus $v = At^4 + Bt^2 + C$ ($A = 0.150\ \text{m}\cdot\text{s}^{-5}$, $B = 1.00\ \text{m}\cdot\text{s}^{-3}$, $C = 5.00\ \text{m}\cdot\text{s}^{-1}$). Leida ajavahemikus 0 kuni 3,50 s läbitud teepikkus.`,
   steps: [
     mc(R`Teepikkus on $s = \int_0^{t} v\,dt$. Mis on algfunktsioon?`, [R`*$\frac{At^5}{5} + \frac{Bt^3}{3} + Ct$`, R`$4At^3 + 2Bt$||See on tuletis.`, R`$At^5 + Bt^3 + Ct$||Jagamine astendajaga on puudu.`]),
     num(R`Arvuta läbitud teepikkus.`, 47.55, 'm', { final: true, label: R`s`, hint: R`$0.03\cdot 3.5^5 + \frac{3.5^3}{3} + 5\cdot 3.5$`, ex: R`$15.76 + 14.29 + 17.5 = 47.6\ \text{m}$` })
@@ -118,7 +118,7 @@ P({ id: '41', b: 2, k: 'K',
 });
 
 P({ id: '42', b: 2, k: 'K',
-  text: R`Punktmassi liikumisvõrrandid on $x = At^2 + B$, $y = Ct^3 + Dt$, $z = Et$ ($A = 0.250\ \text{m·s}^{-2}$, $B = 0.450\ \text{m}$, $C = 0.565\ \text{m·s}^{-3}$, $D = 0.120\ \text{m·s}^{-1}$, $E = 0.350\ \text{m·s}^{-1}$). Leida kiirus ja kiirendus ajahetkel $t = 3.20\ \text{s}$.`,
+  text: R`Punktmassi liikumisvõrrandid on $x = At^2 + B$, $y = Ct^3 + Dt$, $z = Et$ ($A = 0.250\ \text{m}\cdot\text{s}^{-2}$, $B = 0.450\ \text{m}$, $C = 0.565\ \text{m}\cdot\text{s}^{-3}$, $D = 0.120\ \text{m}\cdot\text{s}^{-1}$, $E = 0.350\ \text{m}\cdot\text{s}^{-1}$). Leida kiirus ja kiirendus ajahetkel $t = 3.20\ \text{s}$.`,
   steps: [
     mc(R`Kiiruse komponendid:`, [R`*$v_x = 2At$, $v_y = 3Ct^2 + D$, $v_z = E$`, R`$v_x = 2At + B$, $v_y = 3Ct^2 + D$, $v_z = E$||Konstandi $B$ tuletis on null.`, R`$v_x = At$, $v_y = Ct^2$, $v_z = 0$||Kontrolli tuletisi.`], '', '', { wide: true }),
     num(R`$v_y$ ajahetkel 3,20 s:`, 17.48, 'm/s', { label: R`v_y` }),

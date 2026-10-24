@@ -34,8 +34,8 @@ P({ id: '256', b: 7, k: 'T',
     num(R`Kolmanda killu kiirus:`, 14.14, 'm/s', { final: true, label: R`v_3` }),
     num(R`Nurk esimese killu kiirusega:`, 135, '°', { final: true, label: R`\beta` })
   ],
-  sol: R`$\vec p_1 + \vec p_2 + \vec p_3 = 0$. $p_1 = 0.5$, $p_2 = 0.5\ \text{kg·m/s}$ (ristuvad),
-$$p_3 = \sqrt{p_1^2 + p_2^2} = 0.71\ \text{kg·m/s}, \quad v_3 = \frac{p_3}{m_3} = 14\ \text{m/s}$$
+  sol: R`$\vec p_1 + \vec p_2 + \vec p_3 = 0$. $p_1 = 0.5$, $p_2 = 0.5\ \text{kg}\cdot\text{m/s}$ (ristuvad),
+$$p_3 = \sqrt{p_1^2 + p_2^2} = 0.71\ \text{kg}\cdot\text{m/s}, \quad v_3 = \frac{p_3}{m_3} = 14\ \text{m/s}$$
 Suund on $\vec p_1 + \vec p_2$ vastas: $135°$ esimese killu kiirusega.`,
   ans: R`14 m/s, 135° esimese killu kiirusega.`
 });
@@ -133,7 +133,7 @@ P({ id: '255', b: 7, k: 'K',
     mc(R`Impulsid on risti. Koguimpulss:`, [R`*$p = \sqrt{p_1^2 + p_2^2}$`, R`$p = p_1 + p_2$||Ristuvaid vektoreid ei saa lihtsalt liita.`]),
     num(R`Kiirus pärast põrget:`, 0.1803, 'm/s', { final: true, label: R`v` })
   ],
-  sol: R`$p_1 = 0.045$, $p_2 = 0.03\ \text{kg·m/s}$, $p = 0.054\ \text{kg·m/s}$, $v = \frac{p}{0.3} = 0.18\ \text{m/s} = 18\ \text{cm/s}$.`,
+  sol: R`$p_1 = 0.045$, $p_2 = 0.03\ \text{kg}\cdot\text{m/s}$, $p = 0.054\ \text{kg}\cdot\text{m/s}$, $v = \frac{p}{0.3} = 0.18\ \text{m/s} = 18\ \text{cm/s}$.`,
   ans: R`18 cm/s`
 });
 

@@ -64,7 +64,7 @@ window.FORMULAS = {
 <p>Kesktõmbejõu rolli täidab mõni päris jõud (niidi tõmme, hõõrdejõud, gravitatsioon) või jõudude resultant.</p>
 <p>Vertikaalne ringjoon: ülemises punktis $T + mg = \\dfrac{mv^2}{r}$, alumises $T - mg = \\dfrac{mv^2}{r}$.</p>
 <h4>Gravitatsioon</h4>
-<p>$F = \\gamma\\dfrac{Mm}{r^2}$, $\\gamma = 6.67\\cdot10^{-11}\\ \\text{N·m}^2/\\text{kg}^2$</p>
+<p>$F = \\gamma\\dfrac{Mm}{r^2}$, $\\gamma = 6.67\\cdot10^{-11}\\ \\text{N}\cdot\text{m}^2/\\text{kg}^2$</p>
 <p>Ringorbiit: $\\gamma\\dfrac{Mm}{r^2} = \\dfrac{mv^2}{r} = m\\omega^2 r$, $\\omega = \\dfrac{2\\pi}{T}$</p>
 <p>Maa pinnal: $g = \\gamma\\dfrac{M}{R^2}$</p>
 <p>Kera mass: $M = \\rho V = \\rho\\cdot\\dfrac{4\\pi R^3}{3}$</p>`,
