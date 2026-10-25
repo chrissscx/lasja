@@ -15,10 +15,17 @@ P({ id: '75', b: 3, k: 'T',
     num(R`Tangentsiaalkiirendus:`, 20.8, 'm/s²', { final: true, label: R`a_t`, tol: 0.05 }),
     num(R`Normaalkiirendus:`, 20.8, 'm/s²', { final: true, label: R`a_n`, tol: 0.05, ex: R`$a_n = 4^2\cdot 1.3 = 20.8\ \text{m/s}^2$ (raamatus ümardatud 20 m/s²). Konspektis on arvutatud ka kogukiirendus $a = \sqrt{a_t^2 + a_n^2} \approx 29\ \text{m/s}^2$.` })
   ],
-  sol: R`$$\omega = \int(At^2 - Bt + C)\,dt = \frac{At^3}{3} - \frac{Bt^2}{2} + Ct = 5 - 6 + 5 = 4\ \text{rad/s}$$
-$$\varphi = \int\omega\,dt = \frac{At^4}{12} - \frac{Bt^3}{6} + \frac{Ct^2}{2} = 0.9\ \text{rad}$$
-$\varepsilon(0.5) = 30 - 24 + 10 = 16\ \text{rad/s}^2$,
-$a_t = \varepsilon r = 21\ \text{m/s}^2$, $a_n = \omega^2 r = 21\ \text{m/s}^2$, $a = \sqrt{a_t^2 + a_n^2} = 29.7\ \text{m/s}^2$.`,
+  sol: R`Konspektist $\omega = \int\varepsilon\,dt$, $\varphi = \int\omega\,dt$ ja kiirenduse komponendid $a_t = \varepsilon r$, $a_n = \omega^2 r$. Algtingimused $\omega_0 = 0$, $\varphi_0 = 0$.
+
+<b>Nurkkiirus</b> (integreerime nurkkiirenduse), $t = 0.5\ \text{s}$:
+$$\omega = \frac{At^3}{3} - \frac{Bt^2}{2} + Ct = 40\cdot 0.125 - 24\cdot 0.25 + 10\cdot 0.5 = 5 - 6 + 5 = 4\ \text{rad/s}$$
+
+<b>Pöördenurk</b> (integreerime nurkkiiruse):
+$$\varphi = \frac{At^4}{12} - \frac{Bt^3}{6} + \frac{Ct^2}{2} = 10\cdot 0.0625 - 8\cdot 0.125 + 5\cdot 0.25 \approx 0.9\ \text{rad}$$
+
+<b>Kiirendused.</b> Nurkkiirendus hetkel 0,5 s: $\varepsilon = At^2 - Bt + C = 30 - 24 + 10 = 16\ \text{rad/s}^2$. Raadius $r = 1.3\ \text{m}$:
+$$a_t = \varepsilon r = 16\cdot 1.3 \approx 21\ \text{m/s}^2, \qquad a_n = \omega^2 r = 16\cdot 1.3 \approx 21\ \text{m/s}^2$$
+$$a = \sqrt{a_t^2 + a_n^2} \approx 29.7\ \text{m/s}^2$$`,
   ans: R`$\omega = 4\ \text{rad/s}$; $\varphi = 0.9\ \text{rad}$; $a_t \approx a_n \approx 2\cdot 10\ \text{m/s}^2$.`
 });
 
@@ -32,8 +39,16 @@ P({ id: '76', b: 3, k: 'T',
     mc(R`Kuidas pöördenurgast saada pöörete arv?`, [R`*$N = \frac{\varphi}{2\pi}$`, R`$N = 2\pi\varphi$||Üks pööre on $2\pi$ radiaani, seega tuleb jagada.`, R`$N = \frac{\varphi}{360}$||Nurk on radiaanides, mitte kraadides.`]),
     num(R`Pöörete arv:`, 238.7, 'p', { final: true, label: R`N`, tol: 0.01 })
   ],
-  sol: R`$\varepsilon = \frac{\omega - \omega_0}{t} = -30\ \text{rad/s}^2$,
-$$\varphi = \omega_0t + \frac{\varepsilon t^2}{2} = 3000 - 1500 = 1500\ \text{rad}, \qquad N = \frac{\varphi}{2\pi} = 239$$`,
+  sol: R`Ühtlaselt aeglustuv pöörlemine, konspektist $\omega = \omega_0 + \varepsilon t$ ja $\varphi = \omega_0t + \frac{\varepsilon t^2}{2}$, pöörete arv $N = \frac{\varphi}{2\pi}$.
+
+<b>Nurkkiirendus</b> tingimusest $\omega = 0$ ($\omega_0 = 300\ \text{rad/s}$, $t = 10\ \text{s}$):
+$$\varepsilon = \frac{\omega - \omega_0}{t} = \frac{0 - 300}{10} = -30\ \text{rad/s}^2$$
+
+<b>Pöördenurk:</b>
+$$\varphi = \omega_0t + \frac{\varepsilon t^2}{2} = 300\cdot 10 - 15\cdot 100 = 3000 - 1500 = 1500\ \text{rad}$$
+
+<b>Pöörete arv</b> (üks pööre $= 2\pi$ rad):
+$$N = \frac{\varphi}{2\pi} = \frac{1500}{2\pi} \approx 239$$`,
   ans: R`239 pööret`
 });
 
@@ -46,8 +61,11 @@ P({ id: '86', b: 3, k: 'T',
     num(R`Nurkkiirendus:`, 15.71, 'rad/s²', { final: true, label: R`\varepsilon`, tol: 0.04, ex: R`$\varepsilon = \frac{\pi\cdot 100}{20} = 15.7 \approx 16\ \text{rad/s}^2$` }),
     num(R`Kiireneva pöörlemise kestus:`, 4, 's', { final: true, label: R`t`, hint: R`$t = \frac{\omega}{\varepsilon} = \frac{2\pi\upsilon}{\varepsilon}$`, ex: R`$t = \frac{2N}{\upsilon} = 4.0\ \text{s}$ (konspektis ümardatud $\varepsilon$-ga 3,9 s)` })
   ],
-  sol: R`$\varphi = 2\pi N$, $\omega = 2\pi\upsilon$. Paigalt alustades $\varphi = \frac{\varepsilon t^2}{2}$, $\omega = \varepsilon t$, millest
-$$\varepsilon = \frac{\omega^2}{2\varphi} = \frac{\pi\upsilon^2}{N} = 16\ \text{rad/s}^2, \qquad t = \frac{\omega}{\varepsilon} = 4.0\ \text{s}$$`,
+  sol: R`Teisendame andmed nurksuurusteks (konspektist $\varphi = 2\pi N$, $\omega = 2\pi\upsilon$): pöördenurk $\varphi = 2\pi\cdot 20 = 40\pi\ \text{rad}$, lõppnurkkiirus $\omega = 2\pi\cdot 10 = 20\pi\ \text{rad/s}$.
+
+Paigalt alustades $\varphi = \frac{\varepsilon t^2}{2}$ ja $\omega = \varepsilon t$. Kõrvaldame aja ($t = \frac{\omega}{\varepsilon}$) ja avaldame nurkkiirenduse:
+$$\varepsilon = \frac{\omega^2}{2\varphi} = \frac{(2\pi\upsilon)^2}{2\cdot 2\pi N} = \frac{\pi\upsilon^2}{N} = \frac{\pi\cdot 100}{20} \approx 16\ \text{rad/s}^2$$
+Kestus: $t = \frac{\omega}{\varepsilon} = \frac{2N}{\upsilon} = \frac{40}{10} = 4.0\ \text{s}$.`,
   ans: R`$16\ \text{rad/s}^2$; 4,0 s`
 });
 
@@ -62,9 +80,16 @@ P({ id: '90', b: 3, k: 'T',
     num(R`Teise hooratta pöörlemise aeg:`, 6.67, 's', { label: R`t_2`, hint: R`$t_2 = \frac{-\omega_{02}}{\varepsilon_2}$` }),
     mc(R`Vali kõik õiged järeldused.`, [R`*Esimene pöörles kauem ($t_1 > t_2$)`, R`*Mõlemad tegid sama arvu pöördeid ($N_1 = N_2$)`, R`*Teise nurkkiirendus on suurem ($|\varepsilon_2| > |\varepsilon_1|$)`, R`Teine pöörles kauem||$t_2 = 6.7\ \text{s} < 10\ \text{s}$.`, R`Esimene tegi rohkem pöördeid||Mõlemad tegid 20 pööret.`])
   ],
-  sol: R`Esimene: $\varepsilon_1 = -\frac{2\pi\upsilon_{01}}{t_1} = -2.5\ \text{rad/s}^2$, $N_1 = \upsilon_{01}t_1 + \frac{\varepsilon_1t_1^2}{4\pi} = 20$.<br>
-Teine: $\varepsilon_2 = -\frac{\pi\upsilon_{02}^2}{N_2} = -5.7\ \text{rad/s}^2$, $t_2 = -\frac{2\pi\upsilon_{02}}{\varepsilon_2} = 6.7\ \text{s}$.<br>
-Seega $t_1 > t_2$, $N_1 = N_2$, $|\varepsilon_2| > |\varepsilon_1|$.`,
+  sol: R`Teisendame sagedused: $\upsilon_{01} = 240\ \text{p/min} = 4\ \text{p/s}$, $\upsilon_{02} = 360\ \text{p/min} = 6\ \text{p/s}$. Mõlemad peatuvad ($\omega = 0$).
+
+<b>Esimene hooratas</b> (teada aeg $t_1 = 10\ \text{s}$). Nurkkiirendus $\omega = \omega_0 + \varepsilon t = 0$:
+$$\varepsilon_1 = -\frac{2\pi\upsilon_{01}}{t_1} = -\frac{8\pi}{10} \approx -2.5\ \text{rad/s}^2$$
+Pöörete arv (keskmine sagedus $\frac{\upsilon_{01}}{2}$): $N_1 = \frac{\upsilon_{01}t_1}{2} = \frac{4\cdot 10}{2} = 20$.
+
+<b>Teine hooratas</b> (teada $N_2 = 20$). Konspektist $\omega^2 - \omega_0^2 = 2\varepsilon\varphi$, kus $\varphi_2 = 2\pi N_2$:
+$$\varepsilon_2 = -\frac{\omega_{02}^2}{2\varphi_2} = -\frac{\pi\upsilon_{02}^2}{N_2} = -\frac{\pi\cdot 36}{20} \approx -5.7\ \text{rad/s}^2, \qquad t_2 = \frac{-\omega_{02}}{\varepsilon_2} = \frac{2N_2}{\upsilon_{02}} \approx 6.7\ \text{s}$$
+
+<b>Järeldused:</b> $t_1 > t_2$, $N_1 = N_2$, $|\varepsilon_2| > |\varepsilon_1|$.`,
   ans: R`$t_1 > t_2$; $N_1 = N_2$; $\varepsilon_2 > \varepsilon_1$ (moodulilt).`
 });
 
@@ -87,9 +112,18 @@ P({ id: '65', b: 3, k: 'T',
     }, R`Kogukiirendus on vektorite $\vec a_t$ ja $\vec a_n$ summa. Need on teineteisega risti.`),
     num(R`Kogukiirendus:`, 0.601, 'm/s²', { final: true, label: R`a`, hint: R`$a = \sqrt{a_t^2 + a_n^2}$` })
   ],
-  sol: R`$v_1 = 5\ \text{m/s}$. Ühtlaselt kiireneval liikumisel $v_1^2 = 2a_ts_1 \Rightarrow a_t = \frac{v_1^2}{2s_1} = 0.5\ \text{m/s}^2$.
-$v_2 = a_tt_2 = 10\ \text{m/s}$, $a_n = \frac{v_2^2}{r} = 0.33\ \text{m/s}^2$,
-$$a = \sqrt{a_t^2 + a_n^2} = \sqrt{0.25 + 0.11} = 0.6\ \text{m/s}^2$$`,
+  sol: R`Teisendame kiiruse: $18\ \text{km/h} = \frac{18}{3.6} = 5\ \text{m/s}$.
+
+<b>Tangentsiaalkiirendus</b> on konstantne; aega ei tea, seega kasutame $v_1^2 = 2a_ts_1$:
+$$a_t = \frac{v_1^2}{2s_1} = \frac{5^2}{2\cdot 25} = 0.5\ \text{m/s}^2$$
+
+<b>Kiirus 20. s lõpul</b> (paigalt, $v = a_tt$): $v_2 = 0.5\cdot 20 = 10\ \text{m/s}$.
+
+<b>Normaalkiirendus</b> (konspektist $a_n = \frac{v^2}{r}$, $r = 300\ \text{m}$):
+$$a_n = \frac{v_2^2}{r} = \frac{100}{300} \approx 0.33\ \text{m/s}^2$$
+
+<b>Kogukiirendus</b> (komponendid risti):
+$$a = \sqrt{a_t^2 + a_n^2} = \sqrt{0.25 + 0.11} \approx 0.6\ \text{m/s}^2$$`,
   ans: R`$a_t = 0.50$, $a_n = 0.33$, $a = 0.60\ \text{m/s}^2$`
 });
 
@@ -105,8 +139,12 @@ P({ id: '73', b: 3, k: 'K',
     num(R`Normaalkiirendus:`, 252.3, 'm/s²', { final: true, label: R`a_n` }),
     num(R`Kogukiirendus:`, 252.3, 'm/s²', { final: true, label: R`a`, ex: R`$a_t$ on $a_n$-iga võrreldes väga väike, seega $a \approx a_n$.` })
   ],
-  sol: R`$\omega = -B + 3Ct^2 = 29\ \text{rad/s}$, $\varepsilon = 6Ct = 6\ \text{rad/s}^2$.
-$v = \omega r = 8.70\ \text{m/s}$, $a_t = \varepsilon r = 1.80\ \text{m/s}^2$, $a_n = \omega^2 r = 252\ \text{m/s}^2$, $a = \sqrt{a_t^2 + a_n^2} = 252\ \text{m/s}^2$.`,
+  sol: R`Tuletame pöördenurga võrrandi $\varphi = A - Bt + Ct^3$ (konstandi $A$ tuletis null). Ajahetkel $t = 10\ \text{s}$:
+$$\omega = \dot\varphi = -B + 3Ct^2 = -1 + 3\cdot 0.1\cdot 100 = 29\ \text{rad/s}, \qquad \varepsilon = \dot\omega = 6Ct = 6\ \text{rad/s}^2$$
+Raadius $r = 0.3\ \text{m}$. Konspekti valemitega:
+$$v = \omega r = 29\cdot 0.3 \approx 8.70\ \text{m/s}, \qquad a_t = \varepsilon r = 6\cdot 0.3 = 1.80\ \text{m/s}^2$$
+$$a_n = \omega^2 r = 29^2\cdot 0.3 \approx 252\ \text{m/s}^2, \qquad a = \sqrt{a_t^2 + a_n^2} \approx 252\ \text{m/s}^2$$
+($a_t$ on $a_n$ kõrval tühine, seega $a \approx a_n$.)`,
   ans: R`8,70 m/s; 1,80 m/s²; 252 m/s²; 252 m/s²`
 });
 
@@ -117,7 +155,10 @@ P({ id: '77', b: 3, k: 'K',
     num(R`Nurkkiirendus:`, -4.02, 'rad/s²', { final: true, label: R`\varepsilon`, hint: R`$\varepsilon = \frac{(2\pi)^2(\upsilon^2 - \upsilon_0^2)}{2\cdot 2\pi N} = \frac{\pi(\upsilon^2 - \upsilon_0^2)}{N}$`, ex: R`$\varepsilon = \frac{\pi(36 - 100)}{50} = -4.0\ \text{rad/s}^2$` }),
     num(R`Pidurdamise kestus:`, 6.25, 's', { final: true, label: R`t`, hint: R`$t = \frac{\omega - \omega_0}{\varepsilon}$` })
   ],
-  sol: R`$\varepsilon = \frac{\omega^2 - \omega_0^2}{2\varphi} = \frac{\pi(\upsilon^2 - \upsilon_0^2)}{N} = -4.0\ \text{rad/s}^2$, $t = \frac{2\pi(\upsilon - \upsilon_0)}{\varepsilon} = 6.3\ \text{s}$.`,
+  sol: R`Aega ei tea, seega konspektist $\omega^2 - \omega_0^2 = 2\varepsilon\varphi$. Teisendame sagedused nurkkiirusteks ($\omega = 2\pi\upsilon$) ja pöörded nurgaks ($\varphi = 2\pi N$):
+$$\varepsilon = \frac{\omega^2 - \omega_0^2}{2\varphi} = \frac{(2\pi)^2(\upsilon^2 - \upsilon_0^2)}{2\cdot 2\pi N} = \frac{\pi(\upsilon^2 - \upsilon_0^2)}{N} = \frac{\pi(36 - 100)}{50} \approx -4.0\ \text{rad/s}^2$$
+Kestus $\omega = \omega_0 + \varepsilon t$-st:
+$$t = \frac{\omega - \omega_0}{\varepsilon} = \frac{2\pi(\upsilon - \upsilon_0)}{\varepsilon} \approx 6.3\ \text{s}$$`,
   ans: R`4,0 rad/s² (aeglustuv); 6,3 s`
 });
 
@@ -127,7 +168,9 @@ P({ id: '87', b: 3, k: 'K',
     num(R`Pöördenurk radiaanides:`, 62.83, 'rad', { label: R`\varphi` }),
     num(R`Nurkkiirendus:`, 3.18, 'rad/s²', { final: true, label: R`\varepsilon`, hint: R`$\varepsilon = \frac{\omega^2}{2\varphi}$` })
   ],
-  sol: R`$\varphi = 2\pi\cdot 10 = 62.8\ \text{rad}$, $\varepsilon = \frac{\omega^2}{2\varphi} = \frac{400}{125.7} = 3.2\ \text{rad/s}^2$.`,
+  sol: R`Pöördenurk radiaanides (konspektist $\varphi = 2\pi N$): $\varphi = 2\pi\cdot 10 \approx 62.8\ \text{rad}$.
+<br>Paigalt alustades, aega ei tea, seega $\omega^2 = 2\varepsilon\varphi$. Avaldame nurkkiirenduse:
+$$\varepsilon = \frac{\omega^2}{2\varphi} = \frac{20^2}{2\cdot 62.8} = \frac{400}{125.7} \approx 3.2\ \text{rad/s}^2$$`,
   ans: R`3,2 rad/s²`
 });
 
@@ -138,7 +181,10 @@ P({ id: '89', b: 3, k: 'K',
     num(R`Nurkkiirendus:`, -5.24, 'rad/s²', { final: true, label: R`\varepsilon` }),
     num(R`Pöörete arv:`, 375, 'p', { final: true, label: R`N`, hint: R`$N = \frac{\varphi}{2\pi}$, $\varphi = \omega_0t + \frac{\varepsilon t^2}{2}$` })
   ],
-  sol: R`$\omega_0 = 157\ \text{rad/s}$, $\varepsilon = -\frac{\omega_0}{t} = -5.24\ \text{rad/s}^2$, $\varphi = \frac{\omega_0 t}{2} = 2356\ \text{rad}$, $N = 375$.`,
+  sol: R`Algsagedus $1500\ \text{p/min} = 25\ \text{p/s}$, algnurkkiirus $\omega_0 = 2\pi\upsilon_0 = 2\pi\cdot 25 \approx 157\ \text{rad/s}$. Peatub ($\omega = 0$), $t = 30\ \text{s}$.
+<br>Nurkkiirendus $\omega = \omega_0 + \varepsilon t = 0$:
+$$\varepsilon = -\frac{\omega_0}{t} = -\frac{157}{30} \approx -5.24\ \text{rad/s}^2$$
+Pöördenurk (keskmine nurkkiirus $\frac{\omega_0}{2}$): $\varphi = \frac{\omega_0 t}{2} = \frac{157\cdot 30}{2} \approx 2356\ \text{rad}$, pöörete arv $N = \frac{\varphi}{2\pi} = 375$.`,
   ans: R`−5,24 rad/s²; 375 p`
 });
 
@@ -149,7 +195,11 @@ P({ id: '66', b: 3, k: 'K',
     num(R`Normaalkiirendus:`, 0.64, 'm/s²', { final: true, label: R`a_n` }),
     num(R`Kogukiirendus:`, 0.67, 'm/s²', { final: true, label: R`a` })
   ],
-  sol: R`$v = 10 + 0.2\cdot 30 = 16\ \text{m/s}$, $a_n = \frac{v^2}{r} = 0.64\ \text{m/s}^2$, $a = \sqrt{0.64^2 + 0.2^2} = 0.67\ \text{m/s}^2$.`,
+  sol: R`Teisendame algkiiruse: $36\ \text{km/h} = 10\ \text{m/s}$. Kiirus poole minuti ($t = 30\ \text{s}$) pärast, $v = v_0 + a_tt$:
+$$v = 10 + 0.2\cdot 30 = 16\ \text{m/s}$$
+Normaalkiirendus (konspektist $a_n = \frac{v^2}{r}$, $r = 400\ \text{m}$):
+$$a_n = \frac{v^2}{r} = \frac{256}{400} = 0.64\ \text{m/s}^2$$
+Kogukiirendus (komponendid risti): $a = \sqrt{a_n^2 + a_t^2} = \sqrt{0.64^2 + 0.2^2} \approx 0.67\ \text{m/s}^2$.`,
   ans: R`0,64 m/s²; 0,67 m/s²`
 });
 
@@ -161,7 +211,10 @@ P({ id: '64', b: 3, k: 'S',
     num(R`Normaalkiirendus:`, 0.25, 'm/s²', { final: true, label: R`a_n` }),
     num(R`Kogukiirendus:`, 0.32, 'm/s²', { final: true, label: R`a` })
   ],
-  sol: R`$a_n = \frac{100}{400} = 0.25\ \text{m/s}^2$, $a = \sqrt{0.25^2 + 0.2^2} = 0.32\ \text{m/s}^2$.`,
+  sol: R`Normaalkiirendus (konspektist $a_n = \frac{v^2}{r}$, $v = 10\ \text{m/s}$, $r = 400\ \text{m}$):
+$$a_n = \frac{v^2}{r} = \frac{100}{400} = 0.25\ \text{m/s}^2$$
+Kogukiirendus (tangentsiaal- ja normaalkomponent on risti):
+$$a = \sqrt{a_n^2 + a_t^2} = \sqrt{0.25^2 + 0.2^2} \approx 0.32\ \text{m/s}^2$$`,
   ans: R`0,25 m/s²; 0,32 m/s²`
 });
 
@@ -173,7 +226,10 @@ P({ id: '83', b: 3, k: 'S',
     num(R`Normaalkiirendus:`, 0.4, 'm/s²', { label: R`a_n` }),
     num(R`Kogukiirendus:`, 0.447, 'm/s²', { final: true, label: R`a` })
   ],
-  sol: R`$\omega = \varepsilon t = 1\ \text{rad/s}$, $a_t = \varepsilon r = 0.2$, $a_n = \omega^2 r = 0.4$, $a = 0.45\ \text{m/s}^2$.`,
+  sol: R`Paigalt alustades $\omega = \varepsilon t = 0.5\cdot 2 = 1\ \text{rad/s}$. Raadius $r = 0.4\ \text{m}$.
+<br>Konspekti valemitega:
+$$a_t = \varepsilon r = 0.5\cdot 0.4 = 0.2\ \text{m/s}^2, \qquad a_n = \omega^2 r = 1\cdot 0.4 = 0.4\ \text{m/s}^2$$
+$$a = \sqrt{a_t^2 + a_n^2} = \sqrt{0.04 + 0.16} \approx 0.45\ \text{m/s}^2$$`,
   ans: R`0,45 m/s²`
 });
 
@@ -183,7 +239,8 @@ P({ id: '88', b: 3, k: 'S',
     mc(R`Ühtlaselt aeglustuval pöörlemisel nullini on keskmine sagedus:`, [R`*$\frac{\upsilon_0}{2}$`, R`$\upsilon_0$||Sagedus väheneb kogu aeg.`]),
     num(R`Pöörete arv:`, 6, 'p', { final: true, label: R`N` })
   ],
-  sol: R`$N = \frac{\upsilon_0 t}{2} = \frac{4\cdot 3}{2} = 6$.`,
+  sol: R`Ühtlaselt aeglustuval pöörlemisel nullini on keskmine sagedus $\frac{\upsilon_0}{2}$. Pöörete arv = keskmine sagedus korda aeg:
+$$N = \frac{\upsilon_0}{2}\,t = \frac{4\cdot 3}{2} = 6$$`,
   ans: R`6 pööret`
 });
 

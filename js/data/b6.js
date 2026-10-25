@@ -22,7 +22,14 @@ P({ id: '210', b: 6, k: 'T',
     mc(R`Töö on`, [R`*$A = Fh$ (jõud ja nihe samas suunas, $\cos 0° = 1$)`, R`$A = mgh$||See on ainult potentsiaalse energia muut. Keha saab ka kiiruse ehk kineetilise energia.`]),
     num(R`Tehtud töö:`, 4720, 'J', { final: true, label: R`A`, ex: R`Kontroll energiaga: $mgh + \frac{mv^2}{2} = 3920 + 800 = 4720\ \text{J}$.` })
   ],
-  sol: R`$a = \frac{2h}{t^2} = 2\ \text{m/s}^2$, $F = m(g + a) = 1180\ \text{N}$, $A = Fh = 4720\ \text{J}$.<br>Kontroll: $v = at = 4\ \text{m/s}$, $mgh + \frac{mv^2}{2} = 3920 + 800 = 4720\ \text{J}$.`,
+  sol: R`Keha tõuseb paigalt ühtlaselt kiirenevalt. Kiirendus $h = \frac{at^2}{2}$-st:
+$$a = \frac{2h}{t^2} = \frac{2\cdot 4}{2^2} = 2\ \text{m/s}^2$$
+Tõstev jõud peab ületama raskusjõu ja andma kiirenduse (Newtoni II seadus $ma = F - mg$):
+$$F = m(g + a) = 100(9.8 + 2) = 1180\ \text{N}$$
+Töö (konspektist $A = Fs\cos\alpha$, siin jõud ja nihe samas suunas, $\cos 0° = 1$):
+$$A = Fh = 1180\cdot 4 = 4720\ \text{J}$$
+Kontroll energiaga: keha saab nii potentsiaalse kui kineetilise energia, $v = at = 4\ \text{m/s}$:
+$$mgh + \frac{mv^2}{2} = 3920 + 800 = 4720\ \text{J}$$`,
   ans: R`4,72 kJ`
 });
 
@@ -35,7 +42,9 @@ P({ id: '212', b: 6, k: 'T',
     num(R`Ristlõike pindala SI-ühikutes:`, 1e-4, 'm²', { label: R`S` }),
     num(R`Töö ($E = 2.2\cdot 10^{11}\ \text{Pa}$):`, 11, 'J', { final: true, label: R`A`, tol: 0.06 })
   ],
-  sol: R`$A = \frac{ES(\Delta l)^2}{2l} = \frac{2.2\cdot 10^{11}\cdot 10^{-4}\cdot 10^{-6}}{2\cdot 1} = 11\ \text{J}$.`,
+  sol: R`Venitamisel kasvab elastsusjõud $F = kx$ nullist, kus jäikus $k = \frac{ES}{l}$. Töö võrdub keskmise jõuga korda pikenemine, ehk konspektist $A = \frac{kx^2}{2} = \frac{ES(\Delta l)^2}{2l}$.
+<br>Teisendame: $S = 1\ \text{cm}^2 = 10^{-4}\ \text{m}^2$, $\Delta l = 1\ \text{mm} = 10^{-3}\ \text{m}$ ($(\Delta l)^2 = 10^{-6}$), $l = 1\ \text{m}$, $E = 2.2\cdot 10^{11}\ \text{Pa}$:
+$$A = \frac{ES(\Delta l)^2}{2l} = \frac{2.2\cdot 10^{11}\cdot 10^{-4}\cdot 10^{-6}}{2\cdot 1} = 11\ \text{J}$$`,
   ans: R`11 J`
 });
 
@@ -56,7 +65,11 @@ P({ id: '213', b: 6, k: 'T',
     num(R`Vajalik jõud:`, 674.9, 'N', { label: R`F` }),
     num(R`Tehtud töö:`, 1350, 'J', { final: true, label: R`A`, hint: R`$A = Fl$` })
   ],
-  sol: R`$F = m(a + g\sin\alpha + \mu g\cos\alpha) = 100(1 + 4.9 + 0.85) = 675\ \text{N}$, $A = Fl = 1350\ \text{J} \approx 1.4\ \text{kJ}$.`,
+  sol: R`Keha veetakse piki kaldpinda üles. Newtoni II seadus piki kaldpinda: veojõud peab ületama raskusjõu komponendi $mg\sin\alpha$, hõõrdejõu $\mu mg\cos\alpha$ ja andma kiirenduse:
+$$ma = F - mg\sin\alpha - \mu mg\cos\alpha \Rightarrow F = m(a + g\sin\alpha + \mu g\cos\alpha)$$
+Asendame $m = 100\ \text{kg}$, $a = 1$, $g\sin 30° = 4.9$, $\mu g\cos 30° = 0.1\cdot 9.8\cdot 0.866 = 0.85$:
+$$F = 100(1 + 4.9 + 0.85) \approx 675\ \text{N}$$
+Töö (jõud piki kaldpinda, $A = Fl$): $A = 675\cdot 2 = 1350\ \text{J} \approx 1.4\ \text{kJ}$.`,
   ans: R`1,4 kJ`
 });
 
@@ -70,7 +83,12 @@ P({ id: '224', b: 6, k: 'T',
     num(R`Hõõrdejõud:`, 480, 'N', { final: true, label: R`F_h` }),
     num(R`Hõõrdetegur:`, 0.00408, '', { final: true, label: R`\mu`, hint: R`$\mu = \frac{F_h}{mg}$` })
   ],
-  sol: R`$v_0 = \frac{2s}{t} = 1.2\ \text{m/s}$, $a = \frac{v_0}{t} = 0.04\ \text{m/s}^2$, $F_h = ma = 480\ \text{N}$, $\mu = \frac{a}{g} = 0.0041$.<br>Energia kaudu: $\frac{mv_0^2}{2} = F_hs$ annab sama tulemuse.`,
+  sol: R`Ühtlaselt aeglustuv liikumine seisuni, keskmine kiirus $\frac{v_0}{2}$, seega $s = \frac{v_0}{2}t$. Avaldame algkiiruse:
+$$v_0 = \frac{2s}{t} = \frac{2\cdot 18}{30} = 1.2\ \text{m/s}$$
+Kiirenduse moodul $a = \frac{v_0}{t} = \frac{1.2}{30} = 0.04\ \text{m/s}^2$.
+<br>Hõõrdejõud Newtoni II seadusest ($m = 12\ \text{t} = 12000\ \text{kg}$): $F_h = ma = 12000\cdot 0.04 = 480\ \text{N}$.
+<br>Hõõrdetegur $F_h = \mu mg$-st: $\mu = \frac{a}{g} = \frac{0.04}{9.8} \approx 0.0041$.
+<br>Sama saab energiast: $\frac{mv_0^2}{2} = F_h s$.`,
   ans: R`1,2 m/s; 0,48 kN; 0,0041`
 });
 
@@ -84,8 +102,11 @@ P({ id: '229', b: 6, k: 'T',
     mc(R`Kui laud on 20 mm paks, siis kuul`, [R`*läbib laua ja väljub kiirusega $v' = \sqrt{v^2 - \frac{2Fd'}{m}}$`, R`jääb lauda kinni||Kuul jõuab 40 mm sügavusele, 20 mm on vähem.`]),
     num(R`Väljumiskiirus:`, 141.4, 'm/s', { final: true, label: R`v'` })
   ],
-  sol: R`$F = \frac{mv^2}{2d} = \frac{0.01\cdot 40000}{0.08} = 5.0\ \text{kN}$, $t = \frac{2d}{v} = 0.40\ \text{ms}$.<br>
-$d' = 20\ \text{mm}$: $\frac{mv'^2}{2} = \frac{mv^2}{2} - Fd' \Rightarrow v' = \sqrt{40000 - 20000} = 141\ \text{m/s}$, kuul läbib laua.`,
+  sol: R`Kuuli kineetiline energia kulub tööks takistusjõu vastu: $\frac{mv^2}{2} = Fd$. Avaldame jõu ($m = 10\ \text{g} = 0.01\ \text{kg}$, $v = 200\ \text{m/s}$, $d = 40\ \text{mm} = 0.04\ \text{m}$):
+$$F = \frac{mv^2}{2d} = \frac{0.01\cdot 200^2}{2\cdot 0.04} = \frac{0.01\cdot 40000}{0.08} = 5.0\ \text{kN}$$
+Liikumise kestus (ühtlaselt aeglustuv, $d = \frac{v}{2}t$): $t = \frac{2d}{v} = \frac{0.08}{200} = 0.40\ \text{ms}$.
+<br>Kui laud on vaid $d' = 20\ \text{mm}$, jääb osa energiast alles ja kuul väljub kiirusega $v'$:
+$$\frac{mv'^2}{2} = \frac{mv^2}{2} - Fd' \Rightarrow v' = \sqrt{v^2 - \frac{2Fd'}{m}} = \sqrt{40000 - 20000} \approx 141\ \text{m/s}$$`,
   ans: R`5,0 kN; 0,40 ms; 20 mm laua läbib kuul kiirusega 0,14 km/s.`
 });
 
@@ -93,11 +114,14 @@ P({ id: '231', b: 6, k: 'T',
   text: R`Millise minimaalse kiiruse peaks andma raketile Kuu pinnal, et see jäädavalt lahkuks Kuult?`,
   note: R`Kuu massi ja raadiust ülesandes ei anta (need on kogu lisas). Kasutame $M_K = 7.35\cdot 10^{22}\ \text{kg}$, $R_K = 1.74\cdot 10^6\ \text{m}$, mis klapivad raamatu vastusega. ` + NOTE,
   steps: [
-    mc(R`Rakett lahkub jäädavalt, kui kineetilisest energiast piisab gravitatsiooni ületamiseks:`, [R`*$\frac{mv^2}{2} = \gamma\frac{Mm}{R}$`, R`$\frac{mv^2}{2} = mgR$||Kuul on teine $g$. Kasuta gravitatsiooniseadust otse.`, R`$\frac{mv^2}{R} = \gamma\frac{Mm}{R^2}$||See annab orbiidikiiruse (esimene kosmiline kiirus).`]),
-    mc(R`Kiirus avaldub:`, [R`*$v = \sqrt{\frac{2\gamma M}{R}}$`, R`$v = \sqrt{\frac{\gamma M}{R}}$||Kordaja 2 on puudu.`]),
+    mc(R`Rakett lahkub jäädavalt, kui kineetilisest energiast piisab gravitatsiooni ületamiseks:`, [R`*$\frac{mv^2}{2} = G\frac{Mm}{R}$`, R`$\frac{mv^2}{2} = mgR$||Kuul on teine $g$. Kasuta gravitatsiooniseadust otse.`, R`$\frac{mv^2}{R} = G\frac{Mm}{R^2}$||See annab orbiidikiiruse (esimene kosmiline kiirus).`]),
+    mc(R`Kiirus avaldub:`, [R`*$v = \sqrt{\frac{2G M}{R}}$`, R`$v = \sqrt{\frac{G M}{R}}$||Kordaja 2 on puudu.`]),
     num(R`Minimaalne kiirus:`, 2374, 'm/s', { final: true, label: R`v_2` })
   ],
-  sol: R`$v_2 = \sqrt{\frac{2\gamma M_K}{R_K}} = \sqrt{\frac{2\cdot 6.67\cdot 10^{-11}\cdot 7.35\cdot 10^{22}}{1.74\cdot 10^6}} = 2.37\ \text{km/s}$.`,
+  sol: R`Rakett lahkub jäädavalt, kui kineetilisest energiast piisab gravitatsioonilise seose ületamiseks (konspektist $E_p = -G\frac{Mm}{r}$):
+$$\frac{mv^2}{2} = G\frac{Mm}{R} \Rightarrow v = \sqrt{\frac{2GM}{R}}$$
+See on teine kosmiline kiirus. Asendame Kuu andmed $M_K = 7.35\cdot 10^{22}\ \text{kg}$, $R_K = 1.74\cdot 10^6\ \text{m}$:
+$$v_2 = \sqrt{\frac{2G M_K}{R_K}} = \sqrt{\frac{2\cdot 6.67\cdot 10^{-11}\cdot 7.35\cdot 10^{22}}{1.74\cdot 10^6}} \approx 2.37\ \text{km/s}$$`,
   ans: R`2,37 km/s`
 });
 
@@ -111,7 +135,10 @@ P({ id: '208', b: 6, k: 'K',
     num(R`Nööri tõmbejõud:`, 5.9, 'N', { label: R`F`, hint: R`$F = m(g + a)$` }),
     num(R`Tehtud töö:`, 5.9, 'J', { final: true, label: R`A` })
   ],
-  sol: R`$m = 0.5\ \text{kg}$, $F = m(g + a) = 5.9\ \text{N}$, $A = Fh = 5.9\ \text{J}$.`,
+  sol: R`Vihi mass kaalust: $m = \frac{P}{g} = \frac{4.9}{9.8} = 0.5\ \text{kg}$.
+<br>Nööri tõmbejõud (keha tõuseb kiirendusega, $ma = F - mg$):
+$$F = m(g + a) = 0.5(9.8 + 2) = 5.9\ \text{N}$$
+Töö (jõud ja nihe samas suunas, $A = Fh$): $A = 5.9\cdot 1 = 5.9\ \text{J}$.`,
   ans: R`5,9 J`
 });
 
@@ -119,10 +146,14 @@ P({ id: '211', b: 6, k: 'K',
   text: R`Kui palju tööd tuleb teha, et viia 1,00 kg massiga keha Maa pinnalt lõpmatusse?`,
   note: NOTE,
   steps: [
-    mc(R`Töö gravitatsioonijõu vastu Maa pinnalt lõpmatusse:`, [R`*$A = \gamma\frac{Mm}{R} = mgR$`, R`$A = mgh$, $h = \infty$||$mgh$ kehtib ainult Maa lähedal, kus $g$ on konstantne.`]),
+    mc(R`Töö gravitatsioonijõu vastu Maa pinnalt lõpmatusse:`, [R`*$A = G\frac{Mm}{R} = mgR$`, R`$A = mgh$, $h = \infty$||$mgh$ kehtib ainult Maa lähedal, kus $g$ on konstantne.`]),
     num(R`Töö ($R = 6400\ \text{km}$):`, 6.27e7, 'J', { final: true, label: R`A` })
   ],
-  sol: R`$A = \gamma\frac{Mm}{R} = mgR = 1\cdot 9.8\cdot 6.4\cdot 10^6 = 63\ \text{MJ}$ (raamatus 62,4 MJ).`,
+  sol: R`$mgh$ kehtib ainult Maa lähedal, kus $g$ on konstantne. Maa pinnalt lõpmatusse on töö võrdne potentsiaalse energia muuduga (konspektist $E_p = -G\frac{Mm}{r}$, nullnivoo lõpmatuses):
+$$A = 0 - \left(-G\frac{Mm}{R}\right) = G\frac{Mm}{R}$$
+Kasutades pinnal $GM = gR^2$, lihtsustub see kujule $A = mgR$:
+$$A = mgR = 1\cdot 9.8\cdot 6.4\cdot 10^6 \approx 63\ \text{MJ}$$
+(raamatus $g = 9.81$ korral 62,4 MJ).`,
   ans: R`≈ 62 MJ`
 });
 
@@ -136,7 +167,14 @@ P({ id: '220', b: 6, k: 'K',
     num(R`Veojõu maksimaalne võimsus:`, 56000, 'W', { final: true, label: R`N_v` }),
     num(R`Mootori maksimaalne võimsus:`, 80000, 'W', { final: true, label: R`N_m`, alts: [{ a: 39200, msg: 'Ratastele jõuab 70 % mootori võimsusest, seega mootori võimsus on suurem: jaga 0,7-ga.' }] })
   ],
-  sol: R`$a = \frac{30 - 25}{6} = 0.83\ \text{m/s}^2$, $F_v = ma + F_h = 1867\ \text{N}$, $N_v = F_vv_{max} = 56\ \text{kW}$, $N_m = \frac{N_v}{0.7} = 80\ \text{kW}$.`,
+  sol: R`Teisendame: $90\ \text{km/h} = 25\ \text{m/s}$, $108\ \text{km/h} = 30\ \text{m/s}$. Kiirendus:
+$$a = \frac{v_2 - v_1}{t} = \frac{30 - 25}{6} \approx 0.83\ \text{m/s}^2$$
+Veojõud peab ületama takistuse ja andma kiirenduse ($F_v = ma + F_h$, $m = 1400\ \text{kg}$):
+$$F_v = 1400\cdot 0.83 + 700 \approx 1867\ \text{N}$$
+Võimsus $N = F_v v$ on suurim lõpus, kus $v = 30\ \text{m/s}$:
+$$N_v = F_v v_{max} = 1867\cdot 30 \approx 56\ \text{kW}$$
+Ratastele jõuab 70 % mootori võimsusest, seega mootori võimsus on suurem:
+$$N_m = \frac{N_v}{0.7} \approx 80\ \text{kW}$$`,
   ans: R`56 kW; 80 kW`
 });
 
@@ -149,7 +187,10 @@ P({ id: '223', b: 6, k: 'K',
     num(R`Hõõrdejõu töö:`, 196, 'J', { label: R`A_h` }),
     num(R`Jõu töö:`, 996, 'J', { final: true, label: R`A` })
   ],
-  sol: R`$A = \frac{mv^2}{2} + \mu mgs = 800 + 196 \approx 1\ \text{kJ}$.`,
+  sol: R`Jõu töö läheb kineetiliseks energiaks ja hõõrdejõu ületamiseks (töö ja energia seos):
+$$A = \frac{mv^2}{2} + \mu mgs$$
+Asendame $m = 400\ \text{kg}$, $v = 2\ \text{m/s}$, $\mu = 0.01$, $s = 5\ \text{m}$:
+$$A = \frac{400\cdot 4}{2} + 0.01\cdot 400\cdot 9.8\cdot 5 = 800 + 196 \approx 1\ \text{kJ}$$`,
   ans: R`1 kJ`
 });
 
@@ -162,7 +203,11 @@ P({ id: '227', b: 6, k: 'K',
     mc(R`Ühtlasel sõidul on uisutaja jõud võrdne hõõrdejõuga. Võimsus on`, [R`*$N = F_hv = \mu mgv$`, R`$N = \frac{mv^2}{2t}$||See oleks keskmine võimsus kiirendamisel.`]),
     num(R`Võimsus:`, 46.1, 'W', { final: true, label: R`N` })
   ],
-  sol: R`$v = \frac{2s}{t} = 4.8\ \text{m/s}$, $a = \frac{v}{t} = 0.192$, $\mu = \frac{a}{g} = 0.020$, $N = \mu mgv = 46\ \text{W}$.`,
+  sol: R`Ühtlaselt aeglustuv libisemine seisuni, keskmine kiirus $\frac{v}{2}$, seega $s = \frac{v}{2}t$. Kiirus enne libisemist:
+$$v = \frac{2s}{t} = \frac{2\cdot 60}{25} = 4.8\ \text{m/s}$$
+Aeglustuse moodul $a = \frac{v}{t} = \frac{4.8}{25} = 0.192\ \text{m/s}^2$, hõõrdetegur $\mu = \frac{a}{g} = \frac{0.192}{9.8} \approx 0.020$.
+<br>Ühtlasel sõidul võrdub uisutaja jõud hõõrdejõuga, võimsus $N = F_h v = \mu mg v$ ($m = 50\ \text{kg}$):
+$$N = \mu mg v = 0.02\cdot 50\cdot 9.8\cdot 4.8 \approx 46\ \text{W}$$`,
   ans: R`0,020; 46 W`
 });
 
@@ -171,14 +216,16 @@ P({ id: '227', b: 6, k: 'K',
 P({ id: '206', b: 6, k: 'S',
   text: R`Poiss pingutas kelgu vedamisel nööri 49 N suuruse jõuga. Nöör moodustas kelgu liikumise suunaga nurga 60°. Kui palju tööd tegi poiss, kui ta vedas kelku 0,50 km?`,
   steps: [num(R`Töö:`, 12250, 'J', { final: true, label: R`A`, hint: R`$A = Fs\cos\alpha$` })],
-  sol: R`$A = 49\cdot 500\cdot\cos 60° = 12\ \text{kJ}$.`,
+  sol: R`Konstantne jõud nurga all, konspektist $A = Fs\cos\alpha$. Teisendame $s = 0.5\ \text{km} = 500\ \text{m}$:
+$$A = Fs\cos\alpha = 49\cdot 500\cdot\cos 60° = 49\cdot 500\cdot 0.5 \approx 12\ \text{kJ}$$`,
   ans: R`12 kJ`
 });
 
 P({ id: '209', b: 6, k: 'S',
   text: R`Keha vertikaalsel tõstmisel 1,0 m kõrgusele jääva jõu mõjul tehti tööd 78,4 J. Millise kiirendusega tõsteti keha, kui selle mass oli 2,0 kg?`,
   steps: [num(R`Kiirendus:`, 29.4, 'm/s²', { final: true, label: R`a`, hint: R`$A = m(g + a)h$` })],
-  sol: R`$a = \frac{A}{mh} - g = 39.2 - 9.8 = 29\ \text{m/s}^2$.`,
+  sol: R`Tõstmisel on töö $A = Fh$, kus $F = m(g + a)$. Seega $A = m(g + a)h$. Avaldame kiirenduse:
+$$a = \frac{A}{mh} - g = \frac{78.4}{2\cdot 1} - 9.8 = 39.2 - 9.8 \approx 29\ \text{m/s}^2$$`,
   ans: R`29 m/s²`
 });
 
@@ -188,21 +235,27 @@ P({ id: '221', b: 6, k: 'S',
     num(R`1) Töö:`, 5e7, 'J', { final: true, label: R`A_1`, hint: R`$A = \frac{m(v_2^2 - v_1^2)}{2}$, $v_1 = 10$, $v_2 = 15$ m/s` }),
     num(R`2) Töö:`, 1.6e8, 'J', { final: true, label: R`A_2` })
   ],
-  sol: R`$A_1 = \frac{8\cdot 10^5(225 - 100)}{2} = 50\ \text{MJ}$, $A_2 = \frac{8\cdot 10^5\cdot 400}{2} = 0.16\ \text{GJ}$.`,
+  sol: R`Töö võrdub kineetilise energia muuduga, $A = \frac{m(v_2^2 - v_1^2)}{2}$. Mass $m = 800\ \text{t} = 8\cdot 10^5\ \text{kg}$.
+<br><b>1)</b> $36\ \text{km/h} = 10\ \text{m/s}$, $54\ \text{km/h} = 15\ \text{m/s}$:
+$$A_1 = \frac{8\cdot 10^5(15^2 - 10^2)}{2} = \frac{8\cdot 10^5\cdot 125}{2} = 50\ \text{MJ}$$
+<b>2)</b> $72\ \text{km/h} = 20\ \text{m/s}$ peatamiseni ($v = 0$):
+$$A_2 = \frac{8\cdot 10^5\cdot 20^2}{2} = \frac{8\cdot 10^5\cdot 400}{2} = 0.16\ \text{GJ}$$`,
   ans: R`50 MJ; 0,16 GJ`
 });
 
 P({ id: '222', b: 6, k: 'S',
   text: R`Kui palju tööd tuleb teha, et 1,0 kg massiga keha kiirus 10 m pikkusel teel suureneks 2,0 kuni 6,0 m/s? Kogu teel mõjub hõõrdejõud 2,0 N.`,
   steps: [num(R`Töö:`, 36, 'J', { final: true, label: R`A`, hint: R`$A = \Delta E_k + F_hs$` })],
-  sol: R`$A = \frac{1(36 - 4)}{2} + 2\cdot 10 = 16 + 20 = 36\ \text{J}$.`,
+  sol: R`Töö läheb kineetilise energia muuduks ja hõõrdejõu ületamiseks: $A = \Delta E_k + F_h s$. Asendame $m = 1\ \text{kg}$, $v_1 = 2$, $v_2 = 6\ \text{m/s}$, $F_h = 2\ \text{N}$, $s = 10\ \text{m}$:
+$$A = \frac{m(v_2^2 - v_1^2)}{2} + F_h s = \frac{1(36 - 4)}{2} + 2\cdot 10 = 16 + 20 = 36\ \text{J}$$`,
   ans: R`36 J`
 });
 
 P({ id: '226', b: 6, k: 'S',
   text: R`Naela lüüakse puusse haamriga, mille mass on 1,47 kg. Naelaga kokkupuutumise momendil on haamri kiirus 6,00 m/s. Iga löögi mõjul tungib nael puusse 20,0 mm. Kui suur on naelale mõjuva jõu keskmine väärtus?`,
   steps: [num(R`Keskmine jõud:`, 1323, 'N', { final: true, label: R`F`, hint: R`$Fd = \frac{mv^2}{2}$` })],
-  sol: R`$F = \frac{mv^2}{2d} = \frac{1.47\cdot 36}{0.04} = 1.32\ \text{kN}$.`,
+  sol: R`Haamri kineetiline energia kulub tööks naela liigutamisel: $\frac{mv^2}{2} = Fd$. Avaldame jõu ($m = 1.47\ \text{kg}$, $v = 6\ \text{m/s}$, $d = 20\ \text{mm} = 0.02\ \text{m}$):
+$$F = \frac{mv^2}{2d} = \frac{1.47\cdot 36}{2\cdot 0.02} = \frac{1.47\cdot 36}{0.04} \approx 1.32\ \text{kN}$$`,
   ans: R`1,32 kN`
 });
 
@@ -213,7 +266,9 @@ P({ id: '228', b: 6, k: 'S',
     num(R`Kiirus pärast lauda:`, 200, 'm/s', { label: R`v'` }),
     num(R`Löögi jõud:`, 61220, 'N', { final: true, label: R`F`, tol: 0.05 })
   ],
-  sol: R`$m = 0.0102\ \text{kg}$, $v' = 200\ \text{m/s}$, $F = \frac{m(v^2 - v'^2)}{2d} = 6\cdot 10^4\ \text{N}$.`,
+  sol: R`Kuuli mass kaalust: $m = \frac{P}{g} = \frac{0.1}{9.8} \approx 0.0102\ \text{kg}$. Kuul kaotab $\frac34$ kiirusest, seega $v' = \frac14 v = 200\ \text{m/s}$.
+<br>Löögi jõud kineetilise energia muudust ($\frac{mv^2}{2} - \frac{mv'^2}{2} = Fd$, $d = 5\ \text{cm} = 0.05\ \text{m}$):
+$$F = \frac{m(v^2 - v'^2)}{2d} = \frac{0.0102(800^2 - 200^2)}{2\cdot 0.05} \approx 6\cdot 10^4\ \text{N}$$`,
   ans: R`0,06 MN`
 });
 

@@ -64,9 +64,9 @@ window.FORMULAS = {
 <p>Kesktõmbejõu rolli täidab mõni päris jõud (niidi tõmme, hõõrdejõud, gravitatsioon) või jõudude resultant.</p>
 <p>Vertikaalne ringjoon: ülemises punktis $T + mg = \\dfrac{mv^2}{r}$, alumises $T - mg = \\dfrac{mv^2}{r}$.</p>
 <h4>Gravitatsioon</h4>
-<p>$F = \\gamma\\dfrac{Mm}{r^2}$, $\\gamma = 6.67\\cdot10^{-11}\\ \\text{N}\cdot\text{m}^2/\\text{kg}^2$</p>
-<p>Ringorbiit: $\\gamma\\dfrac{Mm}{r^2} = \\dfrac{mv^2}{r} = m\\omega^2 r$, $\\omega = \\dfrac{2\\pi}{T}$</p>
-<p>Maa pinnal: $g = \\gamma\\dfrac{M}{R^2}$</p>
+<p>$F = G\\dfrac{Mm}{r^2}$, $G = 6.67\\cdot 10^{-11}\\ \\text{N}\\cdot\\text{m}^2/\\text{kg}^2$</p>
+<p>Ringorbiit: $G\\dfrac{Mm}{r^2} = \\dfrac{mv^2}{r} = m\\omega^2 r$, $\\omega = \\dfrac{2\\pi}{T}$</p>
+<p>Maa pinnal: $g = G\\dfrac{M}{R^2}$</p>
 <p>Kera mass: $M = \\rho V = \\rho\\cdot\\dfrac{4\\pi R^3}{3}$</p>`,
 
 6: `<h4>Töö</h4>
@@ -78,13 +78,13 @@ window.FORMULAS = {
 <p>Kineetiline: $E_k = \\dfrac{mv^2}{2}$</p>
 <p>Potentsiaalne Maa lähedal: $E_p = mgh$</p>
 <p>Elastne deformatsioon: $E_p = \\dfrac{kx^2}{2}$, $F = kx$</p>
-<p>Gravitatsiooniline: $E_p = -\\gamma\\dfrac{Mm}{r}$ (nullnivoo lõpmatuses)</p>
+<p>Gravitatsiooniline: $E_p = -G\\dfrac{Mm}{r}$ (nullnivoo lõpmatuses)</p>
 <h4>Töö ja energia seos</h4>
 <p>Kehale tehtud töö = energia muut: $A = \\Delta E_k$ (+ $\\Delta E_p$, + hõõrdetöö)</p>
 <h4>Elastsus</h4>
 <p>$\\sigma = \\dfrac{F}{S} = E\\dfrac{\\Delta l}{l}$, venitamise töö $A = \\dfrac{ES(\\Delta l)^2}{2l}$</p>
 <h4>Teine kosmiline kiirus</h4>
-<p>$v_2 = \\sqrt{\\dfrac{2\\gamma M}{R}} = \\sqrt{2gR}$</p>`,
+<p>$v_2 = \\sqrt{\\dfrac{2GM}{R}} = \\sqrt{2gR}$</p>`,
 
 7: `<h4>Impulss</h4>
 <p>$\\vec p = m\\vec v$, jõuimpulss $\\vec F\\Delta t = \\Delta\\vec p$</p>
@@ -101,3 +101,24 @@ window.FORMULAS = {
 <p>Elastne põrge: kehtivad nii impulsi kui ka mehaanilise energia jäävus.</p>
 <p>$v_1' = \\dfrac{2m_2v_2 + (m_1 - m_2)v_1}{m_1 + m_2}$, $v_2' = \\dfrac{2m_1v_1 + (m_2 - m_1)v_2}{m_1 + m_2}$</p>`
 };
+
+/* Konstandid ja tabeliandmed, mida ülesannetes kasutatakse. Kuvatakse valemite sahtli lõpus. */
+window.CONSTANTS = `<h4>Konstandid ja tabeliandmed</h4>
+<p>Raskuskiirendus: $g = 9.8\\ \\text{m/s}^2$ (mõnes ülesandes $9.81\\ \\text{m/s}^2$)</p>
+<p>Gravitatsioonikonstant: $G = 6.67\\cdot 10^{-11}\\ \\text{N}\\cdot\\text{m}^2/\\text{kg}^2$</p>
+<p>Maa raadius: $R = 6400\\ \\text{km} = 6.4\\cdot 10^6\\ \\text{m}$</p>
+<p>Maa mass: $M = 5.98\\cdot 10^{24}\\ \\text{kg}$</p>
+<p>Maa keskmine tihedus: $\\rho = 5.5\\ \\text{g/cm}^3 = 5500\\ \\text{kg/m}^3$</p>
+<p>Kuu mass: $M_K = 7.35\\cdot 10^{22}\\ \\text{kg}$, Kuu raadius: $R_K = 1.74\\cdot 10^6\\ \\text{m}$</p>
+<p>Terase elastsusmoodul: $E = 2.2\\cdot 10^{11}\\ \\text{Pa}$</p>
+<p>Teisendused: $1\\ \\text{km/h} = \\dfrac{1}{3.6}\\ \\text{m/s}$, $\\ 1\\ \\text{g/cm}^3 = 1000\\ \\text{kg/m}^3$, $\\ 1\\ \\text{t} = 1000\\ \\text{kg}$</p>`;
+
+/* Valemites kasutatavate tähiste seletus. Kuvatakse valemite sahtli lõpus. */
+window.SYMBOLS = `<h4>Tähised</h4>
+<p><b>Kinemaatika:</b> $x, z$ – koordinaat/kõrgus; $s$ – teepikkus; $t$ – aeg; $v$ – kiirus, $v_0$ – algkiirus; $a$ – kiirendus; $g$ – raskuskiirendus; $\\vec r$ – kohavektor; $\\vec i, \\vec j, \\vec k$ – ühikvektorid</p>
+<p><b>Pöörlemine:</b> $\\varphi$ – pöördenurk; $\\omega$ – nurkkiirus; $\\varepsilon$ – nurkkiirendus; $N$ – pöörete arv; $\\upsilon$ – sagedus; $T$ – periood; $r$ – raadius; $a_t$ – tangentsiaal-, $a_n$ – normaalkiirendus</p>
+<p><b>Jõud:</b> $m, M$ – mass; $F$ – jõud, $F_{res}$ – resultantjõud; $N$ – toereaktsioon (normaaljõud); $F_h$ – hõõrdejõud; $\\mu$ – hõõrdetegur; $T$ – niidi/trossi tõmme; $\\alpha$ – nurk; $p$ – rõhk; $S$ – pindala</p>
+<p><b>Gravitatsioon:</b> $G$ – gravitatsioonikonstant; $\\rho$ – tihedus; $R$ – (kera) raadius; $v_2$ – teine kosmiline kiirus</p>
+<p><b>Töö ja energia:</b> $A$ – töö; $N$ – võimsus; $\\eta$ – kasutegur; $E_k$ – kineetiline energia; $E_p$ – potentsiaalne energia; $k$ – vedru jäikus; $E$ – elastsusmoodul; $\\sigma$ – mehaaniline pinge</p>
+<p><b>Impulss ja põrge:</b> $\\vec p = m\\vec v$ – impulss; $Q$ – eraldunud soojus</p>
+<p>Mõni täht tähendab eri teemades eri asja: $N$ on pöörete arv, toereaktsioon või võimsus, $T$ on periood või tõmme. Vaata kontekstist.</p>`;

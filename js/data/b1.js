@@ -29,10 +29,15 @@ P({ id: '7', b: 1, k: 'T',
     num(R`Arvuta kiirendus ajahetkel $t_3 = 4\ \text{s}$.`, 13, 'm/s²', { final: true, label: R`a`,
       hint: R`$a = 2\cdot 2\cdot 4 - 3$`, ex: R`$a = 2\cdot 2\ \frac{\text{m}}{\text{s}^3}\cdot 4\ \text{s} - 3\ \frac{\text{m}}{\text{s}^2} = 13\ \text{m/s}^2$` })
   ],
-  sol: R`Teepikkus on kiiruse integraal üle aja:
+  sol: R`Konspektist: teepikkus on kiiruse integraal üle aja $s = \int_{t_1}^{t_2} v\,dt$ ja kiirendus kiiruse tuletis $a = \dot v$.
+
+<b>1) Teepikkus.</b> Asendame $v = At^2 - Bt$ ja integreerime (konspektist $\int t^n\,dt = \frac{t^{n+1}}{n+1}$):
 $$x(t_2)-x(t_1) = \int_{t_1}^{t_2}(At^2 - Bt)\,dt = \left[\frac{At^3}{3} - \frac{Bt^2}{2}\right]_{t_1}^{t_2}$$
-$$= \frac{2}{3}(3.5^3 - 2.5^3) - \frac{3}{2}(3.5^2 - 2.5^2) \approx 9.2\ \text{m}$$
-Kiirendus on kiiruse tuletis:
+Asendame $A = 2\ \text{m/s}^3$, $B = 3\ \text{m/s}^2$, $t_1 = 2.5\ \text{s}$, $t_2 = 3.5\ \text{s}$:
+$$= \frac{2}{3}(3.5^3 - 2.5^3) - \frac{3}{2}(3.5^2 - 2.5^2) = \frac{2}{3}\cdot 27.25 - \frac{3}{2}\cdot 6 = 18.17 - 9 \approx 9.2\ \text{m}$$
+Kiirus on vahemikus $2.5\ldots 3.5\ \text{s}$ kogu aeg positiivne, seega teepikkus võrdub nihkega.
+
+<b>2) Kiirendus.</b> Võtame kiirusest tuletise ja asendame $t = 4\ \text{s}$:
 $$a = \dot v = 2At - B = 2\cdot 2\cdot 4 - 3 = 13\ \text{m/s}^2$$`,
   ans: R`Läbitud teepikkus on 9,2 m, kiirendus ajahetkel 4 s on 13 m/s².`,
   after: R`Konspektis on teepikkus ümardatud 9,3 m-ks, raamatu vastus on 9,2 m. Mõlemad loetakse õigeks.`
@@ -66,10 +71,18 @@ P({ id: '8', b: 1, k: 'T',
       R`$v = 4t - \frac{t^3}{3} - 1$, $x = 2t^2 - \frac{t^4}{12} - t + 9$||$x_0$ ei ole 9 m: 9 m on koordinaat ajahetkel 3 s, mitte ajahetkel 0.`
     ], '', '', { wide: true })
   ],
-  sol: R`$$v = \int a\,dt = \int(4 - t^2)\,dt = 4t - \frac{t^3}{3} + v_0$$
-Tingimusest $v(3) = 2$: $2 = 12 - 9 + v_0 \Rightarrow v_0 = -1\ \text{m/s}$.
-$$x = \int v\,dt = \int\left(4t - \frac{t^3}{3} - 1\right)dt = 2t^2 - \frac{t^4}{12} - t + x_0$$
-Tingimusest $x(3) = 9$: $9 = 18 - 6.75 - 3 + x_0 \Rightarrow x_0 = 0.75\ \text{m}$.`,
+  sol: R`Konspektist: $v = \int a\,dt$ ja $x = \int v\,dt$. Määramata integraalil tuleb lisada integreerimiskonstant ($v_0$, $x_0$), mille leiame etteantud lisatingimustest.
+
+<b>1) Kiirus.</b> Integreerime kiirenduse:
+$$v = \int a\,dt = \int(4 - t^2)\,dt = 4t - \frac{t^3}{3} + v_0$$
+Konstandi leidmiseks asendame tingimuse $v(3\ \text{s}) = 2\ \text{m/s}$:
+$$2 = 4\cdot 3 - \frac{3^3}{3} + v_0 = 12 - 9 + v_0 \Rightarrow v_0 = -1\ \text{m/s}$$
+
+<b>2) Koordinaat.</b> Integreerime kiiruse $v = 4t - \frac{t^3}{3} - 1$:
+$$x = \int v\,dt = 2t^2 - \frac{t^4}{12} - t + x_0$$
+Asendame tingimuse $x(3\ \text{s}) = 9\ \text{m}$:
+$$9 = 2\cdot 9 - \frac{81}{12} - 3 + x_0 = 18 - 6.75 - 3 + x_0 \Rightarrow x_0 = 0.75\ \text{m}$$
+Seega $v = 4t - \frac{t^3}{3} - 1$ ja $x = 2t^2 - \frac{t^4}{12} - t + 0.75$ (SI ühikud).`,
   ans: R`$v = 4t - \frac{t^3}{3} - 1$, $x = 2t^2 - \frac{t^4}{12} - t + 0.75$ (SI ühikud).`,
   after: R`Raamatu vastuste lehel paistab kiiruse avaldise vabaliige teise märgiga. Konspekti lahendus ja kontroll $v(3) = 12 - 9 - 1 = 2$ näitavad, et õige on $-1$.`
 });
@@ -94,9 +107,14 @@ P({ id: '13', b: 1, k: 'T',
       hint: R`Seitsmes vagun möödub ajavahemikus $t_6 \ldots t_7$.`,
       ex: R`$\Delta t = t_1(\sqrt7 - \sqrt6) = 4\cdot 0.196 \approx 0.79\ \text{s}$` })
   ],
-  sol: R`Paigalt alustades $x = \frac{at^2}{2}$. Esimese vaguni jaoks $x_1 = \frac{at_1^2}{2}$, kuue vaguni jaoks $6x_1 = \frac{at_6^2}{2}$, seitsme jaoks $7x_1 = \frac{at_7^2}{2}$.
-Jagades: $t_6 = t_1\sqrt6$, $t_7 = t_1\sqrt7$.
-$$\Delta t = t_7 - t_6 = t_1(\sqrt7 - \sqrt6) = 4\ \text{s}\cdot(2.646 - 2.449) \approx 0.79\ \text{s}$$`,
+  sol: R`Rong alustab paigalt, seega konspektist $x = \frac{at^2}{2}$ (siin $v_0 = 0$).
+
+Olgu ühe vaguni pikkus $x_1$. $n$ vagunit on möödunud, kui rong on läbinud tee $nx_1$. Kirjutame teepikkuse valemi esimese, kuue ja seitsme vaguni jaoks:
+$$x_1 = \frac{at_1^2}{2}, \qquad 6x_1 = \frac{at_6^2}{2}, \qquad 7x_1 = \frac{at_7^2}{2}$$
+Jagame iga võrrandi esimesega, nii taanduvad $a$ ja $x_1$ välja:
+$$\frac{t_6^2}{t_1^2} = 6 \Rightarrow t_6 = t_1\sqrt6, \qquad \frac{t_7^2}{t_1^2} = 7 \Rightarrow t_7 = t_1\sqrt7$$
+Seitsmes vagun möödub ajavahemikus $t_6\ldots t_7$. Asendame $t_1 = 4\ \text{s}$:
+$$\Delta t = t_7 - t_6 = t_1(\sqrt7 - \sqrt6) = 4\cdot(2.646 - 2.449) \approx 0.79\ \text{s}$$`,
   ans: R`Seitsmes vagun möödub 0,79 s jooksul.`
 });
 
@@ -129,10 +147,17 @@ P({ id: '23', b: 1, k: 'T',
     num(R`Milline on palli kiirus maapinnale jõudmisel?`, -19.4, 'm/s', { label: R`v_2`,
       hint: R`$v_2 = v_0 - gt_2$. Märk näitab suunda.`, ex: R`$v_2 = 10 - 9.8\cdot 3 = -19.4\ \text{m/s}$ (miinus tähendab, et pall liigub alla).` })
   ],
-  sol: R`$$z = z_0 + v_0 t - \frac{gt^2}{2}$$
-Maapinnal $z_2 = 0$:
-$$0 = z_0 + v_0 t_2 - \frac{gt_2^2}{2} \Rightarrow v_0 = \frac{\frac{gt_2^2}{2} - z_0}{t_2} = \frac{4.9\cdot 9 - 14.1}{3} = 10\ \text{m/s}$$
-Lisaks: $t_1 = \frac{v_0}{g} = 1.02\ \text{s}$, $z_1 = z_0 + v_0t_1 - \frac{gt_1^2}{2} = 19.2\ \text{m}$, $v_2 = v_0 - gt_2 = -19.4\ \text{m/s}$.`,
+  sol: R`Konspektist vertikaalse liikumise võrrand (üles visatud kehal $v_0 > 0$, raskuskiirendus alla):
+$$z = z_0 + v_0 t - \frac{gt^2}{2}$$
+
+<b>Viskekiirus.</b> Maapinnal ($t_2 = 3\ \text{s}$) on $z_2 = 0$. Avaldame sellest $v_0$:
+$$0 = z_0 + v_0 t_2 - \frac{gt_2^2}{2} \Rightarrow v_0 = \frac{\frac{gt_2^2}{2} - z_0}{t_2}$$
+Asendame $z_0 = 14.1\ \text{m}$, $g = 9.8\ \text{m/s}^2$, $t_2 = 3\ \text{s}$:
+$$v_0 = \frac{4.9\cdot 3^2 - 14.1}{3} = \frac{44.1 - 14.1}{3} = 10\ \text{m/s}$$
+
+<b>Konspekti lisaküsimused.</b> Kõrgeimas punktis $v = v_0 - gt_1 = 0$, seega
+$$t_1 = \frac{v_0}{g} = \frac{10}{9.8} = 1.02\ \text{s}, \qquad z_1 = z_0 + v_0t_1 - \frac{gt_1^2}{2} = 14.1 + 10.2 - 5.1 \approx 19.2\ \text{m}$$
+Kiirus maapinnal: $v_2 = v_0 - gt_2 = 10 - 9.8\cdot 3 = -19.4\ \text{m/s}$ (miinus = liigub alla).`,
   ans: R`Viskamise kiirus on 10 m/s.`
 });
 
@@ -164,11 +189,17 @@ P({ id: '30', b: 1, k: 'T',
     num(R`Arvuta laskumise aeg.`, 5.22, 's', { final: true, label: R`t`, ex: R`$t = \sqrt{\frac{2\cdot 20}{1.47}} \approx 5.2\ \text{s}$` }),
     num(R`Arvuta kelgu kiirus mäe all.`, 7.67, 'm/s', { final: true, label: R`v`, hint: R`$v = at$`, ex: R`$v = 1.47\cdot 5.2 \approx 7.7\ \text{m/s}$ (sama tuleb ka valemist $v = \sqrt{2gh_0}$).` })
   ],
-  sol: R`Hõõrdumiseta kaldpinnal $a = g\sin\alpha$, kus $\sin\alpha = \frac{h_0}{x} = \frac{3}{20} = 0.15$.
-$$a = 9.8\cdot 0.15 = 1.47\ \text{m/s}^2$$
-Paigalt alustades $x = \frac{at^2}{2}$:
-$$t = \sqrt{\frac{2x}{a}} = \sqrt{\frac{40}{1.47}} = 5.2\ \text{s}$$
-$$v = at = 1.47\cdot 5.2 = 7.7\ \text{m/s}$$`,
+  sol: R`Konspektist: hõõrdumiseta kaldpinnal on kiirendus piki pinda $a = g\sin\alpha$, kus $\sin\alpha = \frac{h}{l}$ (kõrgus jagatud kaldpinna pikkusega).
+
+<b>Kiirendus.</b> Siin $h_0 = 3\ \text{m}$, kaldsiht $x = 20\ \text{m}$:
+$$\sin\alpha = \frac{h_0}{x} = \frac{3}{20} = 0.15, \qquad a = g\sin\alpha = 9.8\cdot 0.15 = 1.47\ \text{m/s}^2$$
+
+<b>Laskumise aeg.</b> Kelk alustab paigalt, seega $x = \frac{at^2}{2}$. Avaldame $t$:
+$$t = \sqrt{\frac{2x}{a}} = \sqrt{\frac{2\cdot 20}{1.47}} = \sqrt{27.2} \approx 5.2\ \text{s}$$
+
+<b>Kiirus mäe all.</b> Paigalt alustades $v = at$:
+$$v = at = 1.47\cdot 5.2 \approx 7.7\ \text{m/s}$$
+Sama tuleks ka energiast $v = \sqrt{2gh_0}$.`,
   ans: R`$t = 5.2\ \text{s}$, $v = 7.7\ \text{m/s}$.`
 });
 
@@ -188,9 +219,17 @@ P({ id: '4', b: 1, k: 'K',
     num(R`Esimese punkti kiirendus:`, -8, 'm/s²', { label: R`a_1`, hint: R`$a_1 = \dot v_1$`, ex: R`$a_1 = -2C_1 = -8\ \text{m/s}^2$ (aeglustub)` }),
     num(R`Teise punkti kiirendus:`, 1, 'm/s²', { label: R`a_2`, ex: R`$a_2 = 2C_2 = 1\ \text{m/s}^2$` })
   ],
-  sol: R`$$v_1 = \dot x_1 = B_1 - 2C_1t = 20 - 8t, \qquad v_2 = \dot x_2 = B_2 + 2C_2t = 2 + t$$
-$v_1 = v_2$: $20 - 8t = 2 + t \Rightarrow t = 2\ \text{s}$, siis $v = 4\ \text{m/s}$.
-$$a_1 = -2C_1 = -8\ \text{m/s}^2, \qquad a_2 = 2C_2 = 1\ \text{m/s}^2$$`,
+  sol: R`Konspektist: kiirus on koordinaadi tuletis $v = \dot x$ ja kiirendus kiiruse tuletis $a = \dot v$. Konstandi tuletis on null.
+
+<b>Kiirused.</b> Tuletame mõlemad liikumisvõrrandid ja asendame kordajad:
+$$v_1 = \dot x_1 = B_1 - 2C_1t = 20 - 8t, \qquad v_2 = \dot x_2 = B_2 + 2C_2t = 2 + t$$
+
+<b>Ajahetk, kus kiirused võrdsed.</b> Paneme $v_1 = v_2$ ja avaldame $t$:
+$$20 - 8t = 2 + t \Rightarrow 18 = 9t \Rightarrow t = 2\ \text{s}$$
+Sel hetkel $v = v_2 = 2 + 2 = 4\ \text{m/s}$.
+
+<b>Kiirendused.</b> Tuletame kiirused veel kord:
+$$a_1 = \dot v_1 = -2C_1 = -8\ \text{m/s}^2 \ (\text{aeglustub}), \qquad a_2 = \dot v_2 = 2C_2 = 1\ \text{m/s}^2$$`,
   ans: R`$t = 2\ \text{s}$; $v = 4\ \text{m/s}$; $a_1 = -8\ \text{m/s}^2$, $a_2 = 1\ \text{m/s}^2$.`
 });
 
@@ -215,11 +254,16 @@ P({ id: '9', b: 1, k: 'K',
     ]),
     num(R`Arvuta kiirus kohal $x = 2\ \text{m}$.`, 4.9, 'm/s', { final: true, label: R`v`, ex: R`$v = 2\sqrt{4 - 2 + 4} = 2\sqrt6 \approx 4.9 \approx 5\ \text{m/s}$` })
   ],
-  sol: R`$a = v\frac{dv}{dx} \Rightarrow v\,dv = (4x - 2)\,dx$
+  sol: R`Kiirendus on antud koordinaadi, mitte aja funktsioonina. Ahelreegliga kõrvaldame aja:
+$$a = \frac{dv}{dt} = \frac{dv}{dx}\frac{dx}{dt} = v\frac{dv}{dx} \Rightarrow v\,dv = a\,dx = (4x - 2)\,dx$$
+
+<b>Integreerime</b> mõlemad pooled ($\int v\,dv = \frac{v^2}{2}$):
 $$\frac{v^2}{2} = 2x^2 - 2x + C$$
-$x = 0$, $v = 4$: $C = 8$. Seega $v^2 = 4x^2 - 4x + 16$ ehk
+<b>Konstant</b> tingimusest $x_0 = 0$, $v_0 = 4\ \text{m/s}$: $\frac{16}{2} = 0 - 0 + C \Rightarrow C = 8$.
+
+Korrutame kahega: $v^2 = 4x^2 - 4x + 16$, ehk
 $$v = 2\sqrt{x^2 - x + 4}$$
-$x = 2\ \text{m}$: $v = 2\sqrt6 \approx 4.9\ \text{m/s}$.`,
+<b>Kohal $x = 2\ \text{m}$:</b> $v = 2\sqrt{4 - 2 + 4} = 2\sqrt6 \approx 4.9\ \text{m/s}$.`,
   ans: R`$v = 2\sqrt{x^2 - x + 4}$; $v(2\ \text{m}) \approx 5\ \text{m/s}$.`
 });
 
@@ -235,8 +279,13 @@ P({ id: '14', b: 1, k: 'K',
     num(R`Leia algkiirus $v_0$.`, 1, 'm/s', { label: R`v_0`, hint: R`$30 = \frac{v_0 + 5v_0}{2}\cdot 10 = 30v_0$` }),
     num(R`Arvuta kiirendus.`, 0.4, 'm/s²', { final: true, label: R`a`, hint: R`$a = \frac{v - v_0}{t}$`, ex: R`$a = \frac{5 - 1}{10} = 0.40\ \text{m/s}^2$` })
   ],
-  sol: R`$$s = \frac{v_0 + v}{2}t = \frac{v_0 + 5v_0}{2}t = 3v_0t \Rightarrow v_0 = \frac{s}{3t} = 1\ \text{m/s}$$
-$$a = \frac{v - v_0}{t} = \frac{4v_0}{t} = 0.40\ \text{m/s}^2$$`,
+  sol: R`Algkiirus ei ole null, seega kasutame keskmist kiirust: ühtlaselt muutuval liikumisel $s = \frac{v_0 + v}{2}t$ (alg- ja lõppkiiruse aritmeetiline keskmine korda aeg).
+
+<b>Algkiirus.</b> Lõppkiirus $v = 5v_0$, asendame:
+$$s = \frac{v_0 + 5v_0}{2}t = 3v_0t \Rightarrow v_0 = \frac{s}{3t} = \frac{30}{3\cdot 10} = 1\ \text{m/s}$$
+
+<b>Kiirendus.</b> Konspektist $v = v_0 + at$, avaldame $a$ (lõppkiirus $v = 5\ \text{m/s}$):
+$$a = \frac{v - v_0}{t} = \frac{5 - 1}{10} = 0.40\ \text{m/s}^2$$`,
   ans: R`$a = 0.40\ \text{m/s}^2$.`
 });
 
@@ -257,9 +306,14 @@ P({ id: '28', b: 1, k: 'K',
     num(R`2) Aerostaat laskub ($v_0 = -5\ \text{m/s}$).`, 7.33, 's', { final: true, label: R`t_2`, ex: R`$t = \frac{-5 + \sqrt{25 + 5880}}{9.8} \approx 7.3\ \text{s}$` }),
     num(R`3) Aerostaat seisab paigal.`, 7.82, 's', { final: true, label: R`t_3`, ex: R`$t = \sqrt{\frac{2z_0}{g}} = \sqrt{\frac{600}{9.8}} \approx 7.8\ \text{s}$` })
   ],
-  sol: R`Kivi algkiirus on sama mis aerostaadil. $0 = z_0 + v_0t - \frac{gt^2}{2}$:
+  sol: R`Inertsi tõttu on kivi algkiirus sama mis aerostaadil. Konspekti vertikaalse liikumise võrrand, maapinnal $z = 0$:
+$$0 = z_0 + v_0t - \frac{gt^2}{2}$$
+See on ruutvõrrand $t$ suhtes: $\frac{g}{2}t^2 - v_0t - z_0 = 0$. Lahend (võtame positiivse juure):
 $$t = \frac{v_0 + \sqrt{v_0^2 + 2gz_0}}{g}$$
-1) $v_0 = 5$: $t = 8.4\ \text{s}$; 2) $v_0 = -5$: $t = 7.3\ \text{s}$; 3) $v_0 = 0$: $t = 7.8\ \text{s}$.`,
+Asendame $z_0 = 300\ \text{m}$, $g = 9.8\ \text{m/s}^2$ ja kolm algkiirust:
+<br>1) tõuseb, $v_0 = +5$: $t = \frac{5 + \sqrt{25 + 5880}}{9.8} \approx 8.4\ \text{s}$;
+<br>2) laskub, $v_0 = -5$: $t = \frac{-5 + \sqrt{25 + 5880}}{9.8} \approx 7.3\ \text{s}$;
+<br>3) paigal, $v_0 = 0$: $t = \sqrt{\frac{2z_0}{g}} = \sqrt{\frac{600}{9.8}} \approx 7.8\ \text{s}$.`,
   ans: R`1) 8,4 s; 2) 7,3 s; 3) 7,8 s.`
 });
 
@@ -283,9 +337,13 @@ P({ id: '31', b: 1, k: 'K',
     num(R`Väiksem nurk:`, 25, '°', { final: true, label: R`\alpha_1`, tol: 0.03 }),
     num(R`Suurem nurk:`, 65, '°', { final: true, label: R`\alpha_2`, tol: 0.02 })
   ],
-  sol: R`Kaldpinna pikkus $l = \frac{b}{\cos\alpha}$, kiirendus $a = g\sin\alpha$, paigalt alustades $l = \frac{at^2}{2}$:
-$$\frac{b}{\cos\alpha} = \frac{g\sin\alpha\,t^2}{2} \Rightarrow \sin 2\alpha = \frac{4b}{gt^2} = \frac{1.2}{1.568} = 0.765$$
-$2\alpha = 50°$ või $130°$, seega $\alpha = 25°$ või $65°$.`,
+  sol: R`Kaldpind on täisnurkse kolmnurga hüpotenuus, mille alus on $b$, seega keha teepikkus $l = \frac{b}{\cos\alpha}$. Konspektist kiirendus $a = g\sin\alpha$ ja paigalt alustades $l = \frac{at^2}{2}$. Paneme need kokku:
+$$\frac{b}{\cos\alpha} = \frac{g\sin\alpha\,t^2}{2}$$
+Korrutame mõlemad pooled $\frac{2\cos\alpha}{gt^2}$-ga ja kasutame $2\sin\alpha\cos\alpha = \sin 2\alpha$:
+$$\sin 2\alpha = \frac{2b}{gt^2}\cdot 2 = \frac{4b}{gt^2}$$
+Asendame $b = 0.3\ \text{m}$, $t = 0.4\ \text{s}$:
+$$\sin 2\alpha = \frac{4\cdot 0.3}{9.8\cdot 0.16} = \frac{1.2}{1.568} = 0.765$$
+Siinus on sama kahe nurga korral: $2\alpha = 50°$ või $2\alpha = 180° - 50° = 130°$, seega $\alpha = 25°$ või $\alpha = 65°$.`,
   ans: R`$25°$ või $65°$.`
 });
 
@@ -302,7 +360,13 @@ P({ id: '15', b: 1, k: 'S',
     num(R`Leia kogu langemise aeg $T$.`, 4.33, 's', { label: R`T`, hint: R`$20 = g(0.5T - 0.125)$`, ex: R`$T = \frac{20/9.8 + 0.125}{0.5} = 4.33\ \text{s}$` }),
     num(R`Arvuta langemise kõrgus.`, 91.9, 'm', { final: true, label: R`h`, ex: R`$h = 4.9\cdot 4.33^2 \approx 92\ \text{m}$` })
   ],
-  sol: R`$h = \frac{gT^2}{2}$, $h - 20 = \frac{g(T-0.5)^2}{2}$. Lahutades: $20 = g(0.5T - 0.125)$, $T = 4.33\ \text{s}$, $h = 92\ \text{m}$.`,
+  sol: R`Olgu kogu langemise aeg $T$ ja kogu kõrgus $h$. Vaba langemine paigalt, konspektist $h = \frac{gT^2}{2}$. Hetkeni $T - 0.5\ \text{s}$ on keha läbinud $h - 20$:
+$$h = \frac{gT^2}{2}, \qquad h - 20 = \frac{g(T - 0.5)^2}{2}$$
+Lahutame teise võrrandi esimesest, siis $h$ kaob:
+$$20 = \frac{g}{2}\left[T^2 - (T - 0.5)^2\right] = \frac{g}{2}(T - 0.25) = g(0.5T - 0.125)$$
+Avaldame $T$ (asendame $g = 9.8$):
+$$T = \frac{20/9.8 + 0.125}{0.5} = 4.33\ \text{s}$$
+Kõrgus: $h = \frac{gT^2}{2} = 4.9\cdot 4.33^2 \approx 92\ \text{m}$.`,
   ans: R`92 m`
 });
 
@@ -315,7 +379,10 @@ P({ id: '17', b: 1, k: 'S',
     ]),
     num(R`Arvuta viimase sekundi tee.`, 191.1, 'm', { final: true, label: R`\Delta h`, ex: R`$\Delta h = 1960 - 4.9\cdot 19^2 = 1960 - 1768.9 = 191\ \text{m}$` })
   ],
-  sol: R`$T = \sqrt{2h/g} = 20\ \text{s}$. $\Delta h = h - \frac{g(T-1)^2}{2} = 1960 - 1769 = 191\ \text{m}$.`,
+  sol: R`Vaba langemine paigalt, konspektist $h = \frac{gT^2}{2}$. Avaldame kogu langemise aja:
+$$T = \sqrt{\frac{2h}{g}} = \sqrt{\frac{2\cdot 1960}{9.8}} = 20\ \text{s}$$
+Viimase sekundi tee = kogu tee miinus esimese $(T-1)$ sekundi tee:
+$$\Delta h = h - \frac{g(T - 1)^2}{2} = 1960 - 4.9\cdot 19^2 = 1960 - 1768.9 \approx 191\ \text{m}$$`,
   ans: R`191 m`
 });
 
@@ -326,7 +393,12 @@ P({ id: '20', b: 1, k: 'S',
     num(R`Leia algkiirus.`, 14.7, 'm/s', { final: true, label: R`v_0`, hint: R`Kõrgeimas punktis $v = v_0 - gt_1 = 0$.`, ex: R`$v_0 = 9.8\cdot 1.5 = 14.7 \approx 15\ \text{m/s}$` }),
     num(R`Leia tõusu kõrgus.`, 11.0, 'm', { final: true, label: R`h`, hint: R`$h = \frac{v_0^2}{2g}$` })
   ],
-  sol: R`$t_1 = 1.5\ \text{s}$, $v_0 = gt_1 = 14.7\ \text{m/s}$, $h = \frac{v_0^2}{2g} = 11\ \text{m}$.`,
+  sol: R`Õhutakistuseta on liikumine sümmeetriline: tõus ja langus võtavad võrdselt aega, seega tõusuaeg $t_1 = \frac{3}{2} = 1.5\ \text{s}$.
+
+Kõrgeimas punktis $v = v_0 - gt_1 = 0$, millest algkiirus:
+$$v_0 = gt_1 = 9.8\cdot 1.5 = 14.7\ \text{m/s}$$
+Tõusu kõrgus (konspektist $v^2 - v_0^2 = 2as$, tipus $v = 0$):
+$$h = \frac{v_0^2}{2g} = \frac{14.7^2}{2\cdot 9.8} \approx 11\ \text{m}$$`,
   ans: R`15 m/s; 11 m`
 });
 
@@ -338,7 +410,12 @@ P({ id: '21', b: 1, k: 'S',
     mc(R`Kuidas nüüd leida algkiirus?`, [R`*$v_0^2 = v^2 + 2gh$`, R`$v_0 = v + gh$||Ühikud ei klapi.`, R`$v_0 = v$||Kõrgusel 9,8 m on keha juba aeglustunud.`]),
     num(R`Arvuta algkiirus.`, 24.0, 'm/s', { final: true, label: R`v_0` })
   ],
-  sol: R`Kõrgusel 9,8 m kulub tippu 2 s, seal $v = 19.6\ \text{m/s}$. $v_0 = \sqrt{v^2 + 2gh} = \sqrt{384 + 192} = 24\ \text{m/s}$.`,
+  sol: R`Keha oli kõrgusel 9,8 m kaks korda (tõustes ja langedes); nende hetkede vahe on 4 s. Sümmeetria tõttu kulub sellelt kõrguselt tippu pool sellest: $t = 2\ \text{s}$.
+
+Kiirus kõrgusel 9,8 m (tipus on kiirus 2 s pärast null): $v = gt = 9.8\cdot 2 = 19.6\ \text{m/s}$.
+
+Algkiirus konspekti valemist $v_0^2 - v^2 = 2gh$ (kõrguselt 9,8 m maapinnani):
+$$v_0 = \sqrt{v^2 + 2gh} = \sqrt{19.6^2 + 2\cdot 9.8\cdot 9.8} = \sqrt{384 + 192} = 24\ \text{m/s}$$`,
   ans: R`24 m/s`
 });
 
@@ -350,7 +427,10 @@ P({ id: '22', b: 1, k: 'S',
     num(R`1) Teine ajahetk kõrgusel 10 m (langemisel):`, 2.08, 's', { final: true, label: R`t_2` }),
     mc(R`2) Mis juhtub kõrgusega 12 m?`, [R`*Kivi ei jõua nii kõrgele (diskriminant on negatiivne)`, R`Kivi on seal kaks korda||Kontrolli diskriminanti: $225 - 2\cdot 9.8\cdot 12 < 0$.`], R`Maksimaalne kõrgus on $\frac{v_0^2}{2g} = 11.5\ \text{m}$.`)
   ],
-  sol: R`$4.9t^2 - 15t + h = 0$. $h = 10$: $t = 0.982\ \text{s}$ ja $2.08\ \text{s}$. $h = 12$: $D < 0$, kivi tõuseb ainult $11.5\ \text{m}$ kõrgusele.`,
+  sol: R`Konspektist $z = v_0t - \frac{gt^2}{2}$. Paneme $z = h$ ja kujundame ruutvõrrandiks:
+$$\frac{g}{2}t^2 - v_0t + h = 0 \Rightarrow 4.9t^2 - 15t + h = 0$$
+<b>1) $h = 10\ \text{m}$:</b> $t = \frac{15 \mp \sqrt{225 - 196}}{9.8}$, kaks lahendit $t_1 = 0.982\ \text{s}$ (tõusul) ja $t_2 = 2.08\ \text{s}$ (langusel).
+<br><b>2) $h = 12\ \text{m}$:</b> diskriminant $225 - 2\cdot 9.8\cdot 12 < 0$, lahendeid pole. Maksimaalne kõrgus on $\frac{v_0^2}{2g} = \frac{225}{19.6} = 11.5\ \text{m}$, seega kivi ei jõua 12 m-ni.`,
   ans: R`1) 0,982 s ja 2,08 s; 2) ei jõua nii kõrgele.`
 });
 
@@ -362,7 +442,12 @@ P({ id: '24', b: 1, k: 'S',
     mc(R`Avalda algkiirus valemist $h = v_0t + \frac{gt^2}{2}$ (alla positiivne).`, [R`*$v_0 = \frac{h - \frac{gt^2}{2}}{t}$`, R`$v_0 = \frac{h}{t}$||Raskuskiirenduse panus on puudu.`]),
     num(R`Arvuta viskamise kiirus.`, 42.5, 'm/s', { final: true, label: R`v_0` })
   ],
-  sol: R`$t_0 = \sqrt{80/9.8} = 2.857\ \text{s}$, $t = 0.857\ \text{s}$. $v_0 = \frac{40 - 4.9\cdot 0.857^2}{0.857} = 42.5\ \text{m/s}$.`,
+  sol: R`Vaba langemise aeg kõrguselt $h = 40\ \text{m}$ (paigalt, $h = \frac{gt_0^2}{2}$):
+$$t_0 = \sqrt{\frac{2h}{g}} = \sqrt{\frac{80}{9.8}} = 2.857\ \text{s}$$
+Allavisatud keha peab jõudma 2 s varem: $t = t_0 - 2 = 0.857\ \text{s}$.
+
+Allavise (alla positiivne) $h = v_0t + \frac{gt^2}{2}$, avaldame $v_0$:
+$$v_0 = \frac{h - \frac{gt^2}{2}}{t} = \frac{40 - 4.9\cdot 0.857^2}{0.857} \approx 42.5\ \text{m/s}$$`,
   ans: R`42,5 m/s`
 });
 
@@ -373,7 +458,9 @@ P({ id: '27', b: 1, k: 'S',
     num(R`Arvuta kiirus 0,50 s pärast (üles positiivne).`, 0.1, 'm/s', { final: true, label: R`v`, abs: 0.008, hint: R`$v = v_0 - gt$`, ex: R`$v = 5 - 9.8\cdot 0.5 = 0.1\ \text{m/s}$ (raamatus $g = 9.81$ korral 0,095 m/s)` }),
     mc(R`Mis suunas ballast sel hetkel liigub?`, [R`*Üles`, R`Alla||Kiirus on veel positiivne, ballast pole jõudnud kõrgeimasse punkti.`])
   ],
-  sol: R`$v = v_0 - gt = 5 - 4.9 = 0.1\ \text{m/s}$ ülespoole.`,
+  sol: R`Ballast liikus koos õhupalliga üles, seega tema algkiirus on $v_0 = 5\ \text{m/s}$ üles. Konspektist $v = v_0 - gt$ (üles positiivne):
+$$v = v_0 - gt = 5 - 9.8\cdot 0.5 = 0.1\ \text{m/s}$$
+Kiirus on veel positiivne, seega ballast liigub endiselt ülespoole (raamatus $g = 9.81$ korral $0.095\ \text{m/s}$).`,
   ans: R`≈ 0,1 m/s ülespoole`
 });
 
@@ -383,7 +470,10 @@ P({ id: '32', b: 1, k: 'S',
     mc(R`Kaldpinna pikkus on $l = \frac{h}{\sin\alpha}$, kiirendus $g\sin\alpha$. Milline on libisemise aeg?`, [R`*$t = \frac{1}{\sin\alpha}\sqrt{\frac{2h}{g}}$`, R`$t = \sqrt{\frac{2h}{g}}$||See on vaba langemise aeg.`, R`$t = \sin\alpha\sqrt{\frac{2h}{g}}$||Kaldpinnal kulub rohkem aega, mitte vähem.`]),
     num(R`Kui $t = 2t_0$, siis milline on kaldenurk?`, 30, '°', { final: true, label: R`\alpha`, hint: R`$\sin\alpha = \frac12$` })
   ],
-  sol: R`$t = \sqrt{\frac{2l}{g\sin\alpha}} = \frac{1}{\sin\alpha}\sqrt{\frac{2h}{g}} = \frac{t_0}{\sin\alpha}$. $t = 2t_0 \Rightarrow \sin\alpha = 0.5$, $\alpha = 30°$.`,
+  sol: R`Kaldpinna pikkus samalt kõrguselt $l = \frac{h}{\sin\alpha}$, konspektist kiirendus $a = g\sin\alpha$, paigalt $l = \frac{at^2}{2}$. Avaldame libisemise aja:
+$$t = \sqrt{\frac{2l}{g\sin\alpha}} = \sqrt{\frac{2h}{g\sin^2\alpha}} = \frac{1}{\sin\alpha}\sqrt{\frac{2h}{g}} = \frac{t_0}{\sin\alpha}$$
+kus $t_0 = \sqrt{\frac{2h}{g}}$ on vaba langemise aeg. Tingimus $t = 2t_0$ annab:
+$$\frac{t_0}{\sin\alpha} = 2t_0 \Rightarrow \sin\alpha = \frac12 \Rightarrow \alpha = 30°$$`,
   ans: R`30°`
 });
 

@@ -580,7 +580,7 @@
     Object.keys(BLOCKS).forEach(k => {
       tabs.appendChild(chip(k + '. ' + BLOCKS[k], +k === cur, () => openDrawer(+k)));
     });
-    $('#drawerBody').innerHTML = md((window.FORMULAS || {})[cur] || '');
+    $('#drawerBody').innerHTML = md((window.FORMULAS || {})[cur] || '') + md(window.SYMBOLS || '') + md(window.CONSTANTS || '');
   }
 
   function closeSidebar() { document.body.classList.remove('side-open'); }

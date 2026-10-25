@@ -41,12 +41,17 @@ P({ id: '43', b: 2, k: 'T',
     num(R`Mis ajahetkel on punktmass punktis (5; 0)?`, 1, 's', { label: R`t`, hint: R`$5t = 5$` }),
     num(R`Kiiruse moodul punktis (5; 0):`, 6.4, 'm/s', { final: true, label: R`v`, ex: R`$\vec v = 5\vec i + 4\vec j$, $v = \sqrt{41} \approx 6.4\ \text{m/s}$; kiirendus on ikka $4\ \text{m/s}^2$.` })
   ],
-  sol: R`a) $\vec r(5) = 25\vec i + 48\vec j$, $\vec r(8) = 40\vec i + 126\vec j$,
-$$\Delta\vec r = 15\vec i + 78\vec j, \quad |\Delta\vec r| = \sqrt{15^2 + 78^2} = 79\ \text{m}$$
-b) $t = x/5 \Rightarrow y = 2\frac{x^2}{25} - 2 = 0.08x^2 - 2$ (parabool).<br>
-c) $\vec v = 5\vec i + 4t\vec j$, $\vec a = 4\vec j$.
-$t = 5$: $\vec v = 5\vec i + 20\vec j$, $v = 21\ \text{m/s}$, $a = 4\ \text{m/s}^2$.
-Punktis (5; 0) on $t = 1\ \text{s}$: $\vec v = 5\vec i + 4\vec j$, $v = 6.4\ \text{m/s}$, $a = 4\ \text{m/s}^2$.`,
+  sol: R`<b>a) Nihe.</b> Konspektist $\Delta\vec r = \vec r(t_2) - \vec r(t_1)$. Arvutame kohavektori mõlemal ajahetkel:
+$$\vec r(5) = 25\vec i + (50 - 2)\vec j = 25\vec i + 48\vec j, \qquad \vec r(8) = 40\vec i + (128 - 2)\vec j = 40\vec i + 126\vec j$$
+$$\Delta\vec r = 15\vec i + 78\vec j, \qquad |\Delta\vec r| = \sqrt{15^2 + 78^2} \approx 79\ \text{m}$$
+
+<b>b) Trajektoor.</b> Avaldame $x = 5t$ põhjal $t = \frac{x}{5}$ ja asendame $y$-isse:
+$$y = 2t^2 - 2 = 2\frac{x^2}{25} - 2 = 0.08x^2 - 2 \ (\text{parabool})$$
+
+<b>c) Kiirus ja kiirendus.</b> Konspektist $\vec v = \dot{\vec r}$, $\vec a = \dot{\vec v}$:
+$$\vec v = 5\vec i + 4t\,\vec j, \qquad \vec a = 4\vec j$$
+Ajahetkel $t = 5\ \text{s}$: $\vec v = 5\vec i + 20\vec j$, $v = \sqrt{25 + 400} \approx 21\ \text{m/s}$, $a = 4\ \text{m/s}^2$.
+<br>Punktis $(5; 0)$ on $5t = 5 \Rightarrow t = 1\ \text{s}$: $\vec v = 5\vec i + 4\vec j$, $v = \sqrt{41} \approx 6.4\ \text{m/s}$, $a = 4\ \text{m/s}^2$.`,
   ans: R`$\Delta\vec r = 15\vec i + 78\vec j$, 79 m; $y = 0.080x^2 - 2.0$; $\vec v = 5\vec i + 20\vec j$, 21 m/s, $\vec a = 4\vec j$, 4 m/s²; punktis (5; 0): $\vec v = 5\vec i + 4\vec j$, 6,4 m/s, 4 m/s².`,
   note: R`Konspekti lahenduses on tehtud osad a) ja c) ajahetke 5 s jaoks. Osad b) ja punkt (5; 0) on raamatu tekstist.`
 });
@@ -57,7 +62,10 @@ P({ id: '46', b: 2, k: 'T',
     mc(R`Teepikkus on $s = \int_0^{t} v\,dt$. Mis on algfunktsioon?`, [R`*$\frac{At^5}{5} + \frac{Bt^3}{3} + Ct$`, R`$4At^3 + 2Bt$||See on tuletis.`, R`$At^5 + Bt^3 + Ct$||Jagamine astendajaga on puudu.`]),
     num(R`Arvuta läbitud teepikkus.`, 47.55, 'm', { final: true, label: R`s`, hint: R`$0.03\cdot 3.5^5 + \frac{3.5^3}{3} + 5\cdot 3.5$`, ex: R`$15.76 + 14.29 + 17.5 = 47.6\ \text{m}$` })
   ],
-  sol: R`$$s = \int_0^{3.5}(At^4 + Bt^2 + C)\,dt = \frac{A t^5}{5} + \frac{Bt^3}{3} + Ct = 15.76 + 14.29 + 17.5 = 47.6\ \text{m}$$`,
+  sol: R`Konspektist teepikkus $s = \int_{t_1}^{t_2} v\,dt$. Integreerime iga liikme ($\int t^n\,dt = \frac{t^{n+1}}{n+1}$):
+$$s = \int_0^{3.5}(At^4 + Bt^2 + C)\,dt = \frac{At^5}{5} + \frac{Bt^3}{3} + Ct$$
+Asendame $A = 0.15$, $B = 1$, $C = 5$ ja $t = 3.5\ \text{s}$ (algpiir 0 annab nulli):
+$$s = 0.03\cdot 3.5^5 + \frac{3.5^3}{3} + 5\cdot 3.5 = 15.76 + 14.29 + 17.5 \approx 47.6\ \text{m}$$`,
   ans: R`47,6 m`
 });
 
@@ -80,9 +88,16 @@ P({ id: '50', b: 2, k: 'T',
     num(R`Arvuta lõppkiirus.`, 12.6, 'm/s', { final: true, label: R`v`, tol: 0.04, ex: R`$v = \sqrt{10.96^2 + 6.26^2} \approx 12.6\ \text{m/s}$ (raamatus ümardatud 13 m/s)` }),
     num(R`Konspekti lisaküsimus: nurk lõppkiiruse ja maapinna vahel.`, 29.7, '°', { label: R`\beta`, ex: R`$\tan\beta = \frac{6.26}{10.96} \Rightarrow \beta \approx 30°$` })
   ],
-  sol: R`$z = z_0 - \frac{gt^2}{2} = 0 \Rightarrow t = \sqrt{\frac{2z_0}{g}} = 0.64\ \text{s}$, $v_0 = \frac{x}{t} = 11\ \text{m/s}$.
-$v_z = -gt = -6.3\ \text{m/s}$,
-$$v = \sqrt{v_0^2 + v_z^2} = 12.6 \approx 13\ \text{m/s}, \qquad \tan\beta = \frac{|v_z|}{v_0} \Rightarrow \beta \approx 30°$$`,
+  sol: R`Horisontaalne vise ($\alpha = 0$), konspektist $x = v_0t$, $z = z_0 - \frac{gt^2}{2}$, $v_x = v_0$, $v_z = -gt$.
+
+<b>Lennuaeg.</b> Maapinnal $z = 0$, avaldame aja:
+$$0 = z_0 - \frac{gt^2}{2} \Rightarrow t = \sqrt{\frac{2z_0}{g}} = \sqrt{\frac{2\cdot 2}{9.8}} \approx 0.64\ \text{s}$$
+
+<b>Algkiirus</b> horisontaalsuunast $x = v_0t$:
+$$v_0 = \frac{x}{t} = \frac{7}{0.64} \approx 11\ \text{m/s}$$
+
+<b>Lõppkiirus.</b> Vertikaalkomponent $|v_z| = gt = 9.8\cdot 0.64 = 6.3\ \text{m/s}$, komponendid on risti:
+$$v = \sqrt{v_0^2 + v_z^2} = \sqrt{11^2 + 6.3^2} \approx 12.6 \approx 13\ \text{m/s}, \qquad \tan\beta = \frac{|v_z|}{v_0} = \frac{6.3}{11} \Rightarrow \beta \approx 30°$$`,
   ans: R`$v_0 = 11\ \text{m/s}$, $v = 13\ \text{m/s}$ (nurk maapinnaga ≈ 30°).`
 });
 
@@ -97,10 +112,19 @@ P({ id: '60', b: 2, k: 'T',
     mc(R`Kogu lennuaja saab võrrandist $0 = v_0t_2\sin\alpha - \frac{gt_2^2}{2}$. Milline lahend sobib?`, [R`*$t_2 = \frac{2v_0\sin\alpha}{g}$`, R`$t_2 = 0$||See on lennu algus (võõrlahend).`, R`$t_2 = \frac{v_0\sin\alpha}{g}$||See on ainult tõusuaeg.`]),
     num(R`Lennukaugus:`, 56560, 'm', { final: true, label: R`x_2`, hint: R`$x_2 = v_0t_2\cos\alpha$`, ex: R`$t_2 = 82\ \text{s}$, $x_2 = 800\cdot 82\cdot\cos 30° \approx 57\ \text{km}$` })
   ],
-  sol: R`$v_x = v_0\cos\alpha$, $x = v_0t\cos\alpha$, $v_z = v_0\sin\alpha - gt$, $z = v_0t\sin\alpha - \frac{gt^2}{2}$.<br>
-Kõrgeimas punktis $v_z = 0$: $v_1 = v_0\cos\alpha = 690\ \text{m/s}$, $t_1 = \frac{v_0\sin\alpha}{g} = 41\ \text{s}$,
-$$z_1 = v_0t_1\sin\alpha - \frac{gt_1^2}{2} = 8200\ \text{m}$$
-Maandumisel $z_2 = 0$: $t_2 = \frac{2v_0\sin\alpha}{g} = 82\ \text{s}$, $x_2 = v_0t_2\cos\alpha = 57\ \text{km}$.`,
+  sol: R`Konspektist nurga all visatud keha: $v_x = v_0\cos\alpha$, $x = v_0t\cos\alpha$, $v_z = v_0\sin\alpha - gt$, $z = v_0t\sin\alpha - \frac{gt^2}{2}$.
+
+<b>Kiirus tipus.</b> Kõrgeimas punktis $v_z = 0$, jääb ainult horisontaalkomponent:
+$$v_1 = v_x = v_0\cos\alpha = 800\cos 30° \approx 690\ \text{m/s}$$
+
+<b>Tõusuaeg</b> tingimusest $v_0\sin\alpha - gt_1 = 0$:
+$$t_1 = \frac{v_0\sin\alpha}{g} = \frac{800\cdot 0.5}{9.8} \approx 41\ \text{s}$$
+
+<b>Maksimaalne kõrgus:</b>
+$$z_1 = v_0t_1\sin\alpha - \frac{gt_1^2}{2} = 800\cdot 41\cdot 0.5 - 4.9\cdot 41^2 \approx 8200\ \text{m}$$
+
+<b>Lennukaugus.</b> Maandumisel $z = 0$ annab kogu lennuaja $t_2 = \frac{2v_0\sin\alpha}{g} = 82\ \text{s}$:
+$$x_2 = v_0t_2\cos\alpha = 800\cdot 82\cdot\cos 30° \approx 57\ \text{km}$$`,
   ans: R`$z_1 \approx 8.2\ \text{km}$, $v_1 \approx 690\ \text{m/s}$, $x_2 \approx 57\ \text{km}$.`
 });
 
@@ -113,7 +137,11 @@ P({ id: '41', b: 2, k: 'K',
     num(R`Kiiruse moodul ajahetkel 0,80 s:`, 2.77, 'm/s', { final: true, label: R`v`, ex: R`$v_x = 1.92$, $v_y = 2$, $v = \sqrt{1.92^2 + 4} \approx 2.8\ \text{m/s}$` }),
     num(R`Kiirenduse moodul:`, 4.8, 'm/s²', { final: true, label: R`a`, hint: R`$a_x = 6t$, $a_y = 0$` })
   ],
-  sol: R`$v_x = 3t^2 = 1.92$, $v_y = 2$, $v = 2.8\ \text{m/s}$; $a_x = 6t = 4.8$, $a_y = 0$, $a = 4.8\ \text{m/s}^2$.`,
+  sol: R`Konspektist $v_x = \dot x$, $v_y = \dot y$ ja moodul $v = \sqrt{v_x^2 + v_y^2}$. Tuletame koordinaadid:
+$$v_x = \dot x = 3t^2, \qquad v_y = \dot y = 2$$
+Ajahetkel $t = 0.8\ \text{s}$: $v_x = 3\cdot 0.64 = 1.92$, $v_y = 2$, seega
+$$v = \sqrt{1.92^2 + 2^2} \approx 2.8\ \text{m/s}$$
+Kiirendus (kiiruse tuletis): $a_x = \dot v_x = 6t = 4.8$, $a_y = 0$, seega $a = 4.8\ \text{m/s}^2$.`,
   ans: R`2,8 m/s; 4,8 m/s²`
 });
 
@@ -126,8 +154,11 @@ P({ id: '42', b: 2, k: 'K',
     mc(R`Kiirenduse komponendid:`, [R`*$a_x = 2A$, $a_y = 6Ct$, $a_z = 0$`, R`$a_x = 2A$, $a_y = 3Ct^2$, $a_z = E$||Võta kiirusest veel kord tuletis.`]),
     num(R`Kiirenduse moodul:`, 10.86, 'm/s²', { final: true, label: R`a`, ex: R`$a_x = 0.5$, $a_y = 10.85$, $a \approx 10.9\ \text{m/s}^2$` })
   ],
-  sol: R`$v_x = 2At = 1.6$, $v_y = 3Ct^2 + D = 17.48$, $v_z = E = 0.35$, $v = 17.6\ \text{m/s}$.
-$a_x = 2A = 0.5$, $a_y = 6Ct = 10.85$, $a = 10.9\ \text{m/s}^2$.`,
+  sol: R`Tuletame koordinaadid aja järgi (konstandi $B$ tuletis on null). Ajahetkel $t = 3.2\ \text{s}$:
+$$v_x = \dot x = 2At = 1.6, \qquad v_y = \dot y = 3Ct^2 + D = 17.48, \qquad v_z = \dot z = E = 0.35$$
+$$v = \sqrt{v_x^2 + v_y^2 + v_z^2} \approx 17.6\ \text{m/s}$$
+Kiirendus (kiiruse tuletis):
+$$a_x = 2A = 0.5, \qquad a_y = 6Ct = 10.85, \qquad a_z = 0, \qquad a = \sqrt{a_x^2 + a_y^2} \approx 10.9\ \text{m/s}^2$$`,
   ans: R`17,6 m/s; 10,9 m/s²`
 });
 
@@ -140,7 +171,11 @@ P({ id: '51', b: 2, k: 'K',
     mc(R`Kuidas leida nurk maapinnaga?`, [R`*$\tan\beta = \frac{|v_z|}{v_x}$`, R`$\tan\beta = \frac{v_x}{|v_z|}$||See annaks nurga vertikaaliga.`, R`$\sin\beta = \frac{z_0}{x}$||Pall ei lenda mööda sirget, vaid mööda parabooli.`]),
     num(R`Nurk:`, 21.8, '°', { final: true, label: R`\beta` })
   ],
-  sol: R`$t = \sqrt{2/9.8} = 0.45\ \text{s}$, $v_0 = 5/0.45 = 11\ \text{m/s}$, $v_z = gt = 4.4\ \text{m/s}$, $\tan\beta = 4.4/11 \Rightarrow \beta = 22°$.`,
+  sol: R`Horisontaalne vise. Lennuaeg kõrguselt $z_0 = 1\ \text{m}$ ($z = z_0 - \frac{gt^2}{2} = 0$):
+$$t = \sqrt{\frac{2z_0}{g}} = \sqrt{\frac{2}{9.8}} \approx 0.45\ \text{s}$$
+Algkiirus horisontaalsuunast $x = v_0t$: $v_0 = \frac{x}{t} = \frac{5}{0.45} \approx 11\ \text{m/s}$.
+<br>Vertikaalkiirus maandumisel $|v_z| = gt = 9.8\cdot 0.45 \approx 4.4\ \text{m/s}$, nurk maapinnaga:
+$$\tan\beta = \frac{|v_z|}{v_x} = \frac{4.4}{11} \Rightarrow \beta \approx 22°$$`,
   ans: R`11 m/s; 22°`
 });
 
@@ -151,7 +186,10 @@ P({ id: '58', b: 2, k: 'K',
     num(R`Arvuta see lennukaugus.`, 4864, 'm', { label: R`x` }),
     num(R`Kui palju lennukaugus väheneb?`, 764, 'm', { final: true, label: R`\Delta x`, tol: 0.03, ex: R`$4864 - 4100 \approx 760\ \text{m}$ (raamatus 759 m, kui $g = 9.81$)` })
   ],
-  sol: R`$x = \frac{v_0^2\sin 2\alpha}{g} = \frac{220^2\sin 80°}{9.8} = 4860\ \text{m}$. Vahe: $4860 - 4100 \approx 760\ \text{m}$.`,
+  sol: R`Õhutakistuseta lennukaugus: lennuaeg $t_2 = \frac{2v_0\sin\alpha}{g}$ korda horisontaalkiirus $v_0\cos\alpha$ annab (kasutades $2\sin\alpha\cos\alpha = \sin 2\alpha$):
+$$x = \frac{v_0^2\sin 2\alpha}{g} = \frac{220^2\cdot\sin 80°}{9.8} \approx 4860\ \text{m}$$
+Õhutakistus lühendab lendu. Vahe teoreetilise ja tegeliku ($4100\ \text{m}$) vahel:
+$$\Delta x = 4860 - 4100 \approx 760\ \text{m}$$`,
   ans: R`≈ 760 m`
 });
 
@@ -164,7 +202,10 @@ P({ id: '47', b: 2, k: 'S',
     num(R`Koordinaat ajahetkel 3,0 s:`, 47.58, 'm', { final: true, label: R`x`, ex: R`$\int_2^3 = 16.25 + 25.33 + 2 = 43.6$, $x = 47.6 \approx 48\ \text{m}$` }),
     num(R`Kiirendus ajahetkel 3,0 s:`, 51, 'm/s²', { final: true, label: R`a`, hint: R`$a = 3t^2 + 8t$` })
   ],
-  sol: R`$x(3) = 4 + \left[\frac{t^4}{4} + \frac{4t^3}{3} + 2t\right]_2^3 = 47.6\ \text{m}$; $a = 3t^2 + 8t = 51\ \text{m/s}^2$.`,
+  sol: R`Teada on $x(2) = 4\ \text{m}$, seega koordinaat hetkel 3 s = algkoordinaat pluss nihe vahemikus $2\ldots 3\ \text{s}$:
+$$x(3) = x(2) + \int_2^3 v\,dt = 4 + \left[\frac{t^4}{4} + \frac{4t^3}{3} + 2t\right]_2^3$$
+$$= 4 + (16.25 + 25.33 + 2) \approx 47.6\ \text{m}$$
+Kiirendus on kiiruse tuletis: $a = \dot v = 3t^2 + 8t$, kohal $t = 3$: $a = 27 + 24 = 51\ \text{m/s}^2$.`,
   ans: R`48 m; 51 m/s²`
 });
 
@@ -176,7 +217,10 @@ P({ id: '52', b: 2, k: 'S',
     num(R`Lõppkiirus:`, 28.0, 'm/s', { final: true, label: R`v` }),
     num(R`Nurk maapinnaga:`, 44.4, '°', { final: true, label: R`\beta` })
   ],
-  sol: R`$v_0 = 40/2 = 20\ \text{m/s}$, $v_z = gt = 19.6$, $v = 28\ \text{m/s}$, $\tan\beta = 19.6/20$, $\beta = 44°$.`,
+  sol: R`Horisontaalne vise, lennuaeg $t = 2\ \text{s}$ antud. Algkiirus horisontaalsuunast $x = v_0t$:
+$$v_0 = \frac{x}{t} = \frac{40}{2} = 20\ \text{m/s}$$
+Vertikaalkiirus maandumisel $|v_z| = gt = 9.8\cdot 2 = 19.6\ \text{m/s}$. Lõppkiirus (komponendid risti):
+$$v = \sqrt{v_0^2 + v_z^2} = \sqrt{400 + 384} \approx 28\ \text{m/s}, \qquad \tan\beta = \frac{|v_z|}{v_0} = \frac{19.6}{20} \Rightarrow \beta \approx 44°$$`,
   ans: R`20 m/s; 28 m/s; 44°`
 });
 
@@ -187,7 +231,10 @@ P({ id: '53', b: 2, k: 'S',
     num(R`Langemise aeg:`, 7.82, 's', { label: R`t` }),
     num(R`Kaugus:`, 391, 'm', { final: true, label: R`x` })
   ],
-  sol: R`$v_0 = 50\ \text{m/s}$, $t = \sqrt{600/9.8} = 7.82\ \text{s}$, $x = v_0t = 391\ \text{m}$.`,
+  sol: R`Teisendame kiiruse: $180\ \text{km/h} = \frac{180}{3.6} = 50\ \text{m/s}$. Pomm visatakse horisontaalselt kõrguselt $z_0 = 300\ \text{m}$.
+<br>Langemise aeg ($z = z_0 - \frac{gt^2}{2} = 0$):
+$$t = \sqrt{\frac{2z_0}{g}} = \sqrt{\frac{600}{9.8}} \approx 7.82\ \text{s}$$
+Horisontaalne kaugus: $x = v_0t = 50\cdot 7.82 \approx 391\ \text{m}$.`,
   ans: R`391 m`
 });
 
@@ -197,7 +244,10 @@ P({ id: '54', b: 2, k: 'S',
     num(R`Kiirus 3 s pärast:`, 49.6, 'm/s', { final: true, label: R`v`, hint: R`$v = \sqrt{v_0^2 + (gt)^2}$` }),
     num(R`Nurk horisondiga:`, 36.3, '°', { final: true, label: R`\beta` })
   ],
-  sol: R`$v_z = 29.4$, $v = \sqrt{1600 + 864} = 50\ \text{m/s}$, $\tan\beta = 29.4/40$, $\beta = 36°$.`,
+  sol: R`Horisontaalne vise algkiirusega $v_0 = 40\ \text{m/s}$. Vertikaalkiirus 3 s pärast $|v_z| = gt = 9.8\cdot 3 = 29.4\ \text{m/s}$.
+<br>Kogukiirus (komponendid risti):
+$$v = \sqrt{v_0^2 + v_z^2} = \sqrt{1600 + 864} \approx 50\ \text{m/s}$$
+Nurk horisondiga: $\tan\beta = \frac{|v_z|}{v_0} = \frac{29.4}{40} \Rightarrow \beta \approx 36°$.`,
   ans: R`50 m/s; 36°`
 });
 
@@ -207,7 +257,8 @@ P({ id: '59', b: 2, k: 'S',
     mc(R`Mis tingimus kehtib kõrgeimas punktis?`, [R`*$v_z = v_0\sin\alpha - gt = 0$`, R`$z = 0$||See on maandumine.`]),
     num(R`Algkiirus:`, 83.2, 'm/s', { final: true, label: R`v_0`, hint: R`$v_0 = \frac{gt}{\sin 45°}$` })
   ],
-  sol: R`$v_0 = \frac{gt}{\sin\alpha} = \frac{9.8\cdot 6}{0.707} = 83\ \text{m/s}$.`,
+  sol: R`Rakett peab süttima trajektoori kõrgeimas punktis, kus $v_z = 0$. Konspektist $v_z = v_0\sin\alpha - gt = 0$, avaldame algkiiruse:
+$$v_0 = \frac{gt}{\sin\alpha} = \frac{9.8\cdot 6}{\sin 45°} = \frac{58.8}{0.707} \approx 83\ \text{m/s}$$`,
   ans: R`83 m/s`
 });
 

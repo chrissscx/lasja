@@ -34,9 +34,11 @@ P({ id: '256', b: 7, k: 'T',
     num(R`Kolmanda killu kiirus:`, 14.14, 'm/s', { final: true, label: R`v_3` }),
     num(R`Nurk esimese killu kiirusega:`, 135, '°', { final: true, label: R`\beta` })
   ],
-  sol: R`$\vec p_1 + \vec p_2 + \vec p_3 = 0$. $p_1 = 0.5$, $p_2 = 0.5\ \text{kg}\cdot\text{m/s}$ (ristuvad),
-$$p_3 = \sqrt{p_1^2 + p_2^2} = 0.71\ \text{kg}\cdot\text{m/s}, \quad v_3 = \frac{p_3}{m_3} = 14\ \text{m/s}$$
-Suund on $\vec p_1 + \vec p_2$ vastas: $135°$ esimese killu kiirusega.`,
+  sol: R`Ese oli enne paigal, seega impulsi jäävuse seadusest $\vec p_1 + \vec p_2 + \vec p_3 = 0$, ehk $\vec p_3 = -(\vec p_1 + \vec p_2)$.
+<br>Impulsid ($p = mv$): $p_1 = 0.1\cdot 5 = 0.5$ (x-sihis), $p_2 = 0.2\cdot 2.5 = 0.5\ \text{kg}\cdot\text{m/s}$ (y-sihis). Need on risti, seega:
+$$p_3 = \sqrt{p_1^2 + p_2^2} = \sqrt{0.5^2 + 0.5^2} \approx 0.71\ \text{kg}\cdot\text{m/s}$$
+Kolmanda killu kiirus ($m_3 = 0.05\ \text{kg}$): $v_3 = \frac{p_3}{m_3} = \frac{0.71}{0.05} \approx 14\ \text{m/s}$.
+<br>Suund on $\vec p_1 + \vec p_2$ vastas, s.t. $135°$ esimese killu kiirusega.`,
   ans: R`14 m/s, 135° esimese killu kiirusega.`
 });
 
@@ -53,7 +55,10 @@ P({ id: '265', b: 7, k: 'T',
     num(R`Uisutaja kiirus pärast viset:`, 0.3429, 'm/s', { label: R`V` }),
     num(R`Libisemise teepikkus:`, 0.3, 'm', { final: true, label: R`s`, tol: 0.03 })
   ],
-  sol: R`$MV = mv \Rightarrow V = \frac{3\cdot 8}{70} = 0.34\ \text{m/s}$. $\frac{MV^2}{2} = \mu Mgs \Rightarrow s = \frac{V^2}{2\mu g} = 0.30\ \text{m}$.`,
+  sol: R`Viske hetkel kehtib impulsi jäävus (süsteem algul paigal): $0 = mv - MV$. Avaldame uisutaja kiiruse ($m = 3\ \text{kg}$, $v = 8\ \text{m/s}$, $M = 70\ \text{kg}$):
+$$V = \frac{mv}{M} = \frac{3\cdot 8}{70} \approx 0.34\ \text{m/s}$$
+Seejärel peatab uisutaja hõõrdejõu töö: $\frac{MV^2}{2} = \mu Mgs$. Mass taandub, avaldame tee:
+$$s = \frac{V^2}{2\mu g} = \frac{0.34^2}{2\cdot 0.02\cdot 9.8} \approx 0.30\ \text{m}$$`,
   ans: R`0,3 m`
 });
 
@@ -72,7 +77,12 @@ P({ id: '267', b: 7, k: 'T',
     num(R`Kiirus vahetult pärast põrget:`, 2.396, 'm/s', { label: R`u` }),
     num(R`Kuuli kiirus:`, 242, 'm/s', { final: true, label: R`v` })
   ],
-  sol: R`$h = l(1 - \cos 45°) = 0.29\ \text{m}$, $u = \sqrt{2gh} = 2.40\ \text{m/s}$, $v = \frac{(m + M)u}{m} = 101\cdot 2.40 = 0.24\ \text{km/s}$.`,
+  sol: R`Arvutame tagantpoolt. Teame nurka, leiame tõusu kõrguse (konspektist $h = l(1 - \cos\alpha)$):
+$$h = l(1 - \cos 45°) = 1\cdot(1 - 0.707) \approx 0.29\ \text{m}$$
+Pärast põrget liiguvad kuul ja keha koos; energia jäävusest tõusul $\frac{(m+M)u^2}{2} = (m+M)gh$:
+$$u = \sqrt{2gh} = \sqrt{2\cdot 9.8\cdot 0.29} \approx 2.40\ \text{m/s}$$
+Põrge ise on mitteelastne (kuul tungib sisse), kehtib impulsi jäävus $mv = (m+M)u$. Avaldame kuuli kiiruse ($m = 0.01\ \text{kg}$, $M = 1\ \text{kg}$):
+$$v = \frac{(m + M)u}{m} = \frac{1.01}{0.01}\cdot 2.40 = 101\cdot 2.40 \approx 0.24\ \text{km/s}$$`,
   ans: R`0,24 km/s`
 });
 
@@ -85,7 +95,10 @@ P({ id: '273', b: 7, k: 'T',
     mc(R`Kiiruse ruut madalaimas punktis (energia jäävus):`, [R`*$v^2 = 2gl(1 - \cos 60°) = gl$`, R`$v^2 = 2gl$||Kõrguste vahe on $l(1 - \cos\alpha)$, mitte $l$.`]),
     num(R`Nööri tõmme:`, 19.6, 'N', { final: true, label: R`T`, ex: R`$T = mg + \frac{mgl}{l} = 2mg = 19.6 \approx 20\ \text{N}$` })
   ],
-  sol: R`$v^2 = 2gl(1 - \cos 60°) = gl$. $T - mg = \frac{mv^2}{l} = mg \Rightarrow T = 2mg = 20\ \text{N}$.`,
+  sol: R`Energia jäävusest madalaimas punktis (kõrguste vahe $l(1 - \cos\alpha)$, $v^2 = 2gh$):
+$$v^2 = 2gl(1 - \cos 60°) = 2gl\cdot 0.5 = gl$$
+Madalaimas punktis annavad tõmme ja raskusjõud kesktõmbe: $T - mg = \frac{mv^2}{l}$. Asendame $v^2 = gl$:
+$$T = mg + \frac{m\cdot gl}{l} = 2mg = 2\cdot 1\cdot 9.8 \approx 20\ \text{N}$$`,
   ans: R`20 N`
 });
 
@@ -105,7 +118,11 @@ P({ id: '275', b: 7, k: 'T',
     mc(R`Energia jäävus kaldpinna tipust lagipunktini:`, [R`*$mgh = mg\cdot 2R + \frac{mv^2}{2}$`, R`$mgh = \frac{mv^2}{2}$||Lagipunkt on kõrgusel $2R$.`, R`$mgh = mgR + \frac{mv^2}{2}$||Lagipunkt on ringi tipus, kõrgusel $2R$.`]),
     num(R`Minimaalne kõrgus:`, 20, 'm', { final: true, label: R`h`, ex: R`$h = 2R + \frac{R}{2} = 2.5R = 20\ \text{m}$` })
   ],
-  sol: R`Lagipunktis $mg = \frac{mv^2}{R}$. Energia: $mgh = 2mgR + \frac{mgR}{2} \Rightarrow h = 2.5R = 20\ \text{m}$.`,
+  sol: R`Lagipunktis on minimaalse kiiruse korral toereaktsioon null ja raskusjõud annab üksi kesktõmbe:
+$$mg = \frac{mv^2}{R} \Rightarrow v^2 = gR$$
+Energia jäävus kaldpinna tipust (kõrgus $h$) lagipunkti (kõrgus $2R$):
+$$mgh = mg\cdot 2R + \frac{mv^2}{2} = 2mgR + \frac{mgR}{2}$$
+Mass ja $g$ taanduvad: $h = 2R + \frac{R}{2} = 2.5R = 2.5\cdot 8 = 20\ \text{m}$.`,
   ans: R`20 m`
 });
 
@@ -118,7 +135,11 @@ P({ id: '284', b: 7, k: 'T',
     mc(R`2) Kehad liiguvad vastu. Kuidas arvestada suunda?`, [R`*Ühe keha kiirus on negatiivne: $5\cdot 4 + 7\cdot(-2)$`, R`Liita mõlemad positiivsetena||Vastassuunalised impulsid tuleb lahutada.`]),
     num(R`2) Kiirus pärast põrget:`, 0.5, 'm/s', { final: true, label: R`v_2`, ex: R`$v = \frac{20 - 14}{12} = 0.5\ \text{m/s}$, 5 kg keha liikumise suunas.` })
   ],
-  sol: R`1) $v = \frac{5\cdot 4 + 7\cdot 2}{12} = 2.8 \approx 3\ \text{m/s}$. 2) $v = \frac{5\cdot 4 - 7\cdot 2}{12} = 0.5\ \text{m/s}$.`,
+  sol: R`Mitteelastsel põrkel liiguvad kehad edasi koos, impulsi jäävus $m_1v_1 + m_2v_2 = (m_1 + m_2)v$. Avaldame ühise kiiruse ($m_1 = 5$, $m_2 = 7\ \text{kg}$):
+<br><b>1)</b> Sama suund (kergem jõuab järele raskemale):
+$$v = \frac{m_1v_1 + m_2v_2}{m_1 + m_2} = \frac{5\cdot 4 + 7\cdot 2}{12} \approx 2.8\ \text{m/s}$$
+<b>2)</b> Vastassuunad, 7 kg keha kiirus negatiivne:
+$$v = \frac{5\cdot 4 - 7\cdot 2}{12} = \frac{6}{12} = 0.5\ \text{m/s} \ (\text{5 kg keha suunas})$$`,
   ans: R`1) ≈ 3 m/s; 2) 0,5 m/s`
 });
 
@@ -133,7 +154,11 @@ P({ id: '255', b: 7, k: 'K',
     mc(R`Impulsid on risti. Koguimpulss:`, [R`*$p = \sqrt{p_1^2 + p_2^2}$`, R`$p = p_1 + p_2$||Ristuvaid vektoreid ei saa lihtsalt liita.`]),
     num(R`Kiirus pärast põrget:`, 0.1803, 'm/s', { final: true, label: R`v` })
   ],
-  sol: R`$p_1 = 0.045$, $p_2 = 0.03\ \text{kg}\cdot\text{m/s}$, $p = 0.054\ \text{kg}\cdot\text{m/s}$, $v = \frac{p}{0.3} = 0.18\ \text{m/s} = 18\ \text{cm/s}$.`,
+  sol: R`Impulsside arvutus ($p = mv$, teisendame kiirused m/s): $p_1 = 0.1\cdot 0.45 = 0.045$, $p_2 = 0.2\cdot 0.15 = 0.03\ \text{kg}\cdot\text{m/s}$.
+<br>Pallid liiguvad ristuvates sihtides, seega koguimpulss:
+$$p = \sqrt{p_1^2 + p_2^2} = \sqrt{0.045^2 + 0.03^2} \approx 0.054\ \text{kg}\cdot\text{m/s}$$
+Impulsi jäävusest $(m_1 + m_2)v = p$, ühine mass $0.3\ \text{kg}$:
+$$v = \frac{p}{0.3} = 0.18\ \text{m/s} = 18\ \text{cm/s}$$`,
   ans: R`18 cm/s`
 });
 
@@ -146,8 +171,11 @@ P({ id: '257', b: 7, k: 'K',
     mc(R`Impulsi jäävus horisontaalsihis (laeva suund positiivne):`, [R`*$Mv_0 = (M - m)V - mu\cos\alpha$`, R`$Mv_0 = (M - m)V + mu\cos\alpha$||Mürsk lendab tagasi, seega tema impulss on miinusega.`]),
     num(R`Laeva kiirus:`, 2.087, 'm/s', { final: true, label: R`V`, tol: 0.003, ex: R`$V = 2.087\ \text{m/s} = 7.51\ \text{km/h}$` })
   ],
-  sol: R`$v_0 = 2\ \text{m/s}$. $Mv_0 = (M - m)V - mu\cos 30°$:
-$$V = \frac{600000\cdot 2 + 60\cdot 866}{599940} = 2.087\ \text{m/s} = 7.51\ \text{km/h}$$`,
+  sol: R`Impulss säilib horisontaalsihis (vertikaalis mõjuvad raskusjõud ja vee üleslükkejõud). Teisendame laeva kiiruse $7.2\ \text{km/h} = 2\ \text{m/s}$. Mürsu horisontaalkomponent $u\cos 30° = 1000\cdot 0.866 = 866\ \text{m/s}$, suunatud laeva liikumisele vastu.
+<br>Impulsi jäävus (laeva suund positiivne, mürsk miinusega):
+$$Mv_0 = (M - m)V - mu\cos\alpha$$
+Avaldame laeva kiiruse ($M = 600\,000\ \text{kg}$, $m = 60\ \text{kg}$):
+$$V = \frac{Mv_0 + mu\cos\alpha}{M - m} = \frac{600000\cdot 2 + 60\cdot 866}{599940} \approx 2.087\ \text{m/s} = 7.51\ \text{km/h}$$`,
   ans: R`7,51 km/h`
 });
 
@@ -159,7 +187,11 @@ P({ id: '266', b: 7, k: 'K',
     num(R`Tõusu kõrgus:`, 0.1296, 'm', { label: R`h`, hint: R`$h = \frac{u^2}{2g}$` }),
     num(R`Nurk:`, 14.6, '°', { final: true, label: R`\alpha`, tol: 0.04, hint: R`$\cos\alpha = 1 - \frac{h}{l}$` })
   ],
-  sol: R`$u = \frac{0.02\cdot 400}{5.02} = 1.59\ \text{m/s}$, $h = \frac{u^2}{2g} = 0.13\ \text{m}$, $\cos\alpha = 1 - \frac{0.13}{4} \Rightarrow \alpha = 15°$.`,
+  sol: R`Põrge on mitteelastne (kuul tungib sisse), impulsi jäävus $mv = (m + M)u$. Kiirus vahetult pärast põrget ($m = 0.02\ \text{kg}$, $v = 400\ \text{m/s}$, $M = 5\ \text{kg}$):
+$$u = \frac{mv}{m + M} = \frac{0.02\cdot 400}{5.02} \approx 1.59\ \text{m/s}$$
+Energia jäävusest tõusu kõrgus: $h = \frac{u^2}{2g} = \frac{1.59^2}{2\cdot 9.8} \approx 0.13\ \text{m}$.
+<br>Nurk (konspektist $h = l(1 - \cos\alpha)$, $l = 4\ \text{m}$):
+$$\cos\alpha = 1 - \frac{h}{l} = 1 - \frac{0.13}{4} \Rightarrow \alpha \approx 15°$$`,
   ans: R`15°`
 });
 
@@ -172,7 +204,10 @@ P({ id: '274', b: 7, k: 'K',
     num(R`$\cos\alpha$:`, 0.75, '', { label: R`\cos\alpha` }),
     num(R`Maksimaalne nurk:`, 41.4, '°', { final: true, label: R`\alpha`, tol: 0.01 })
   ],
-  sol: R`$T = mg(3 - 2\cos\alpha) = 1470 \Rightarrow 3 - 2\cos\alpha = 1.5 \Rightarrow \cos\alpha = 0.75$, $\alpha = 41°$.`,
+  sol: R`Tõmme on suurim madalaimas punktis: $T - mg = \frac{mv^2}{l}$, kus energiast $v^2 = 2gl(1 - \cos\alpha)$. Asendame ja koondame:
+$$T = mg + 2mg(1 - \cos\alpha) = mg(3 - 2\cos\alpha)$$
+Tross katkeb, kui $T = 1470\ \text{N}$ ($mg = 100\cdot 9.8 = 980\ \text{N}$). Avaldame nurga:
+$$3 - 2\cos\alpha = \frac{T}{mg} = \frac{1470}{980} = 1.5 \Rightarrow \cos\alpha = 0.75 \Rightarrow \alpha \approx 41°$$`,
   ans: R`41,3°`
 });
 
@@ -184,7 +219,10 @@ P({ id: '286', b: 7, k: 'K',
     mc(R`Soojus on`, [R`*kineetiliste energiate vahe: $Q = \frac{m_1v_1^2}{2} - \frac{(m_1 + m_2)v^2}{2}$`, R`$Q = 0$||Mitteelastsel põrkel energia ei säili.`]),
     num(R`Eraldunud soojus:`, 12, 'J', { final: true, label: R`Q` })
   ],
-  sol: R`$v = \frac{3\cdot 4}{6} = 2\ \text{m/s}$, $Q = \frac{3\cdot 16}{2} - \frac{6\cdot 4}{2} = 24 - 12 = 12\ \text{J}$.`,
+  sol: R`Mitteelastne põrge paigaloleva kehaga, impulsi jäävus $m_1v_1 = (m_1 + m_2)v$ ($m_1 = m_2 = 3\ \text{kg}$):
+$$v = \frac{m_1v_1}{m_1 + m_2} = \frac{3\cdot 4}{6} = 2\ \text{m/s}$$
+Eraldunud soojus = kineetiliste energiate vahe:
+$$Q = \frac{m_1v_1^2}{2} - \frac{(m_1 + m_2)v^2}{2} = \frac{3\cdot 16}{2} - \frac{6\cdot 4}{2} = 24 - 12 = 12\ \text{J}$$`,
   ans: R`12 J`
 });
 
@@ -196,7 +234,10 @@ P({ id: '263', b: 7, k: 'K',
     num(R`Lõppenergia:`, 14.4, 'J', { label: R`E` }),
     num(R`Takistuse ületamiseks kulunud energia:`, 3.5, 'J', { final: true, label: R`\Delta E` })
   ],
-  sol: R`$E_0 = 0.05\cdot 9.8\cdot 20 + \frac{0.05\cdot 324}{2} = 9.8 + 8.1 = 17.9\ \text{J}$, $E = \frac{0.05\cdot 576}{2} = 14.4\ \text{J}$, $\Delta E = 3.5\ \text{J}$.`,
+  sol: R`Õhutakistuse töö = mehaanilise energia kadu. Algne energia (potentsiaalne + kineetiline, $m = 0.05\ \text{kg}$, $h = 20\ \text{m}$, $v_0 = 18\ \text{m/s}$):
+$$E_0 = mgh + \frac{mv_0^2}{2} = 0.05\cdot 9.8\cdot 20 + \frac{0.05\cdot 324}{2} = 9.8 + 8.1 = 17.9\ \text{J}$$
+Maapinnal ($h = 0$, $v = 24\ \text{m/s}$): $E = \frac{mv^2}{2} = \frac{0.05\cdot 576}{2} = 14.4\ \text{J}$.
+<br>Takistuse ületamiseks kulus $\Delta E = E_0 - E = 17.9 - 14.4 \approx 3.5\ \text{J}$.`,
   ans: R`3,5 J`
 });
 
@@ -205,21 +246,27 @@ P({ id: '263', b: 7, k: 'K',
 P({ id: '248', b: 7, k: 'S',
   text: R`Kiirusega 10 m/s liikuv granaat jagunes lõhkemisel kaheks killuks. Suurem kild, mille mass on 0,60 granaadi massist, jätkas liikumist samas suunas. Selle kiirus kasvas 25 m/s võrra. Leida väiksema killu kiirus.`,
   steps: [num(R`Väiksema killu kiirus:`, -27.5, 'm/s', { final: true, label: R`v_2`, tol: 0.03, hint: R`$M\cdot 10 = 0.6M\cdot 35 + 0.4Mv_2$` })],
-  sol: R`$10 = 0.6\cdot 35 + 0.4v_2 \Rightarrow v_2 = -27.5\ \text{m/s}$ (vastassuunas).`,
+  sol: R`Impulsi jäävus (granaadi mass $M$ taandub): suurem kild on $0.6M$ kiirusega $10 + 25 = 35\ \text{m/s}$, väiksem $0.4M$:
+$$M\cdot 10 = 0.6M\cdot 35 + 0.4M\cdot v_2 \Rightarrow 10 = 21 + 0.4v_2$$
+$$v_2 = \frac{10 - 21}{0.4} = -27.5\ \text{m/s} \ (\text{vastassuunas})$$`,
   ans: R`−28 m/s`
 });
 
 P({ id: '249', b: 7, k: 'S',
   text: R`Mürsk massiga 20 kg väljub relvast, mille mass on 1,0 t, kiirusega 800 m/s. Määrata relva kiirus tagasilöögil lasu momendil.`,
   steps: [num(R`Relva kiirus:`, 16, 'm/s', { final: true, label: R`V` })],
-  sol: R`$mv = MV \Rightarrow V = \frac{20\cdot 800}{1000} = 16\ \text{m/s}$.`,
+  sol: R`Enne lasku süsteem paigal, impulsi jäävus $0 = mv - MV$. Avaldame relva tagasilöögikiiruse ($m = 20\ \text{kg}$, $v = 800\ \text{m/s}$, $M = 1\ \text{t} = 1000\ \text{kg}$):
+$$V = \frac{mv}{M} = \frac{20\cdot 800}{1000} = 16\ \text{m/s}$$`,
   ans: R`16 m/s`
 });
 
 P({ id: '250', b: 7, k: 'S',
   text: R`Vagun massiga 60 t läheneb liikumatule platvormile kiirusega 0,20 m/s. Pärast lööki vastu puhvreid hakkab platvorm liikuma kiirusega 0,25 m/s. Kui suur on platvormi mass, kui vaguni kiirus vähenes väärtuseni 0,10 m/s?`,
   steps: [num(R`Platvormi mass:`, 24000, 'kg', { final: true, label: R`m` })],
-  sol: R`$60\cdot 0.2 = 60\cdot 0.1 + m\cdot 0.25 \Rightarrow m = 24\ \text{t}$.`,
+  sol: R`Impulsi jäävus: vaguni algimpulss = vaguni lõppimpulss + platvormi impulss ($M = 60\ \text{t}$):
+$$Mv_0 = Mv_1 + mV \Rightarrow 60\cdot 0.2 = 60\cdot 0.1 + m\cdot 0.25$$
+Avaldame platvormi massi:
+$$m = \frac{60(0.2 - 0.1)}{0.25} = \frac{6}{0.25} = 24\ \text{t}$$`,
   ans: R`24 t`
 });
 
@@ -229,7 +276,9 @@ P({ id: '251', b: 7, k: 'S',
     mc(R`Mis säilib?`, [R`*Impulsi horisontaalkomponent`, R`Kiirus||Mass kasvas, seega kiirus muutub.`]),
     num(R`Uus kiirus:`, 0.16, 'm/s', { final: true, label: R`v` })
   ],
-  sol: R`$800\cdot 0.2 = 1000v \Rightarrow v = 0.16\ \text{m/s}$, vähenes 0,04 m/s võrra.`,
+  sol: R`Killustik langeb vertikaalselt, seega horisontaalsihis säilib impulss. Algmass $800\ \text{kg}$, uus mass $800 + 200 = 1000\ \text{kg}$:
+$$800\cdot 0.2 = 1000\cdot v \Rightarrow v = \frac{160}{1000} = 0.16\ \text{m/s}$$
+Kiirus vähenes $0.20 - 0.16 = 0.04\ \text{m/s}$ võrra.`,
   ans: R`vähenes 0,04 m/s võrra`
 });
 
@@ -240,7 +289,11 @@ P({ id: '261', b: 7, k: 'S',
     num(R`Potentsiaalne energia keskpunktis:`, 98.2, 'J', { final: true, label: R`E_p` }),
     num(R`Kineetiline energia keskpunktis:`, 98.2, 'J', { final: true, label: R`E_k` })
   ],
-  sol: R`$h = \frac{gt^2}{2} = 10\ \text{m}$, keskel $E_p = mg\frac{h}{2} = 98\ \text{J}$, $E_k = mgh - E_p = 98\ \text{J}$.`,
+  sol: R`Kivi mass kaalust: $m = \frac{P}{g} = \frac{19.6}{9.8} = 2\ \text{kg}$. Kogu langemise kõrgus ($h = \frac{gt^2}{2}$):
+$$h = \frac{9.8\cdot 1.43^2}{2} \approx 10\ \text{m}$$
+Tee keskpunktis ($\frac{h}{2} = 5\ \text{m}$) potentsiaalne energia:
+$$E_p = mg\frac{h}{2} = 2\cdot 9.8\cdot 5 \approx 98\ \text{J}$$
+Energia jäävusest kineetiline energia = algenergia miinus $E_p$: $E_k = mgh - E_p = 196 - 98 = 98\ \text{J}$.`,
   ans: R`98,3 J; 98,3 J`
 });
 
@@ -252,7 +305,11 @@ P({ id: '262', b: 7, k: 'S',
     num(R`Kineetiline energia 2 s hiljem:`, 59858, 'J', { label: R`E_{k2}`, hint: R`$v = 15 + 9.8\cdot 2$` }),
     num(R`Potentsiaalne energia 2 s hiljem:`, 98392, 'J', { final: true, label: R`E_{p2}`, hint: R`Langes $15\cdot 2 + 4.9\cdot 4 = 49.6\ \text{m}$` })
   ],
-  sol: R`$E_{k1} = 11.3\ \text{kJ}$, $E_{p1} = 147\ \text{kJ}$; 2 s hiljem $v = 34.6\ \text{m/s}$, $h = 100.4\ \text{m}$: $E_{k2} = 59.9\ \text{kJ}$, $E_{p2} = 98.4\ \text{kJ}$. Summa on mõlemal juhul 158 kJ.`,
+  sol: R`$m = 100\ \text{kg}$. <b>Alghetkel</b> ($h = 150\ \text{m}$, $v = 15\ \text{m/s}$):
+$$E_{k1} = \frac{mv^2}{2} = \frac{100\cdot 225}{2} \approx 11.3\ \text{kJ}, \qquad E_{p1} = mgh = 100\cdot 9.8\cdot 150 = 147\ \text{kJ}$$
+<b>2 s hiljem:</b> $v = 15 + 9.8\cdot 2 = 34.6\ \text{m/s}$, langes $15\cdot 2 + 4.9\cdot 4 = 49.6\ \text{m}$, seega $h = 100.4\ \text{m}$:
+$$E_{k2} = \frac{100\cdot 34.6^2}{2} \approx 59.9\ \text{kJ}, \qquad E_{p2} = 100\cdot 9.8\cdot 100.4 \approx 98.4\ \text{kJ}$$
+Summa mõlemal juhul $\approx 158\ \text{kJ}$ ($11.3 + 147 = 59.9 + 98.4$), energia säilib.`,
   ans: R`11,3 kJ; 147 kJ; 59,9 kJ; 98,5 kJ`
 });
 
@@ -262,7 +319,10 @@ P({ id: '264', b: 7, k: 'S',
     num(R`Potentsiaalne energia:`, 119.2, 'J', { final: true, label: R`E_p`, hint: R`2 s jooksul langeb kivi 19,6 m` }),
     num(R`Kineetiline energia:`, 156.8, 'J', { final: true, label: R`E_k` })
   ],
-  sol: R`$h = 50 - 19.6 = 30.4\ \text{m}$, $E_p = 119\ \text{J}$; $v^2 = 400 + 19.6^2 = 784$, $E_k = 157\ \text{J}$.`,
+  sol: R`$m = 0.4\ \text{kg}$. 2 s jooksul langeb kivi $\frac{gt^2}{2} = 4.9\cdot 4 = 19.6\ \text{m}$, seega kõrgus $h = 50 - 19.6 = 30.4\ \text{m}$:
+$$E_p = mgh = 0.4\cdot 9.8\cdot 30.4 \approx 119\ \text{J}$$
+Kiirus: horisontaalkomponent $v_x = 20\ \text{m/s}$, vertikaalne $v_z = gt = 19.6\ \text{m/s}$, seega $v^2 = 20^2 + 19.6^2 = 784\ \text{m}^2/\text{s}^2$:
+$$E_k = \frac{mv^2}{2} = \frac{0.4\cdot 784}{2} \approx 157\ \text{J}$$`,
   ans: R`0,12 kJ; 0,16 kJ`
 });
 
@@ -272,21 +332,25 @@ P({ id: '272', b: 7, k: 'S',
     mc(R`Energia jäävus:`, [R`*$mgh = \mu mgs$`, R`$mgh = \frac{mv^2}{2}$ ja rohkem polegi vaja||Küsitakse hõõrdetegurit: kogu energia kulub hõõrdetööle.`]),
     num(R`Hõõrdetegur:`, 0.02, '', { final: true, label: R`\mu` })
   ],
-  sol: R`$mgh = \mu mgs \Rightarrow \mu = \frac{h}{s} = 0.020$.`,
+  sol: R`Nõlvakul hõõrdumist pole, seega kogu potentsiaalne energia läheb horisontaalsel teeosal hõõrdetööks. Energia jäävus $mgh = \mu mgs$, mass ja $g$ taanduvad:
+$$\mu = \frac{h}{s} = \frac{1.6}{80} = 0.020$$`,
   ans: R`0,020`
 });
 
 P({ id: '276', b: 7, k: 'S',
   text: R`Mootorrattur sõidab horisontaalset teed mööda. Milline peab olema minimaalne kiirus, et ta saaks väljalülitatud mootoriga teha surmasõlme raadiusega 4,0 m? Hõõrdumist, õhutakistust ja pöörlemistele kuluvat energiat mitte arvestada.`,
   steps: [num(R`Minimaalne kiirus:`, 14, 'm/s', { final: true, label: R`v`, hint: R`$\frac{mv^2}{2} = 2mgR + \frac{mgR}{2}$` })],
-  sol: R`$v^2 = 5gR = 196 \Rightarrow v = 14\ \text{m/s}$.`,
+  sol: R`Lagipunktis annab raskusjõud üksi kesktõmbe (minimaalne kiirus): $v_t^2 = gR$. Energia jäävus maapinnalt lagipunkti (kõrgus $2R$):
+$$\frac{mv^2}{2} = 2mgR + \frac{mv_t^2}{2} = 2mgR + \frac{mgR}{2}$$
+Mass taandub: $v^2 = 5gR = 5\cdot 9.8\cdot 4 = 196 \Rightarrow v = 14\ \text{m/s}$.`,
   ans: R`14 m/s`
 });
 
 P({ id: '280', b: 7, k: 'S',
   text: R`Milline on minimaalne kiirus, mille peab andma kehale maapinnal, et see lahkuks Maa gravitatsioonilise mõju piirkonnast. Õhu takistust mitte arvestada.`,
   steps: [num(R`Teine kosmiline kiirus ($R = 6400\ \text{km}$):`, 11200, 'm/s', { final: true, label: R`v_2`, hint: R`$v_2 = \sqrt{2gR}$` })],
-  sol: R`$v_2 = \sqrt{2gR} = \sqrt{2\cdot 9.8\cdot 6.4\cdot 10^6} = 11.2\ \text{km/s}$.`,
+  sol: R`See on teine kosmiline kiirus. Kineetilisest energiast peab piisama gravitatsioonilise seose ületamiseks: $\frac{mv^2}{2} = G\frac{Mm}{R}$, millest $v = \sqrt{\frac{2GM}{R}}$. Pinnal $GM = gR^2$, seega $v_2 = \sqrt{2gR}$:
+$$v_2 = \sqrt{2gR} = \sqrt{2\cdot 9.8\cdot 6.4\cdot 10^6} \approx 11.2\ \text{km/s}$$`,
   ans: R`11,1 km/s`
 });
 
@@ -296,7 +360,10 @@ P({ id: '285', b: 7, k: 'S',
     num(R`Ühine kiirus pärast põrget:`, 2, 'm/s', { label: R`v` }),
     num(R`Deformeerimiseks kulunud energia:`, 42, 'J', { final: true, label: R`Q` })
   ],
-  sol: R`$v = \frac{20 - 6}{7} = 2\ \text{m/s}$, $Q = 50 + 6 - 14 = 42\ \text{J}$.`,
+  sol: R`Kuulid liiguvad teineteisele vastu, üks kiirus negatiivne. Impulsi jäävus ($m_1 = 4$, $m_2 = 3\ \text{kg}$, $v_1 = 5$, $v_2 = -2\ \text{m/s}$):
+$$v = \frac{m_1v_1 + m_2v_2}{m_1 + m_2} = \frac{20 - 6}{7} = 2\ \text{m/s}$$
+Deformeerimiseks kulunud energia = kineetiliste energiate vahe:
+$$Q = \frac{m_1v_1^2}{2} + \frac{m_2v_2^2}{2} - \frac{(m_1 + m_2)v^2}{2} = 50 + 6 - 14 = 42\ \text{J}$$`,
   ans: R`0,04 kJ`
 });
 

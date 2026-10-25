@@ -71,8 +71,12 @@ P({ id: '95', b: 4, k: 'T',
     mc(R`Rõhk on jõud pinnaühiku kohta. Mis on toru ristlõike pindala?`, [R`*$S = \frac{\pi d^2}{4}$`, R`$S = \pi d^2$||$d$ on läbimõõt, raadius on $d/2$.`, R`$S = \pi d$||See on ümbermõõt.`]),
     num(R`Keskmine rõhk torus:`, 9.52e8, 'Pa', { final: true, label: R`p`, alts: [{ a: 9.52e8 / 4, msg: 'Pindala arvutamisel kasuta $\\frac{\\pi d^2}{4}$, mitte $\\pi d^2$.' }], ex: R`$p = \frac{4F}{\pi d^2} = \frac{4\cdot 4.2\cdot 10^6}{\pi\cdot 0.075^2} \approx 0.95\ \text{GPa}$` })
   ],
-  sol: R`$v^2 = 2as \Rightarrow a = \frac{v^2}{2s} = 4.2\cdot 10^5\ \text{m/s}^2$, $F = ma = 4.2\ \text{MN}$.
-$$p = \frac{F}{S} = \frac{4F}{\pi d^2} = 0.95\ \text{GPa}$$`,
+  sol: R`Mürsu kiirendus torus on konstantne; aega ei tea, seega konspektist $v^2 = 2as$. Avaldame kiirenduse:
+$$a = \frac{v^2}{2s} = \frac{1450^2}{2\cdot 2.5} \approx 4.2\cdot 10^5\ \text{m/s}^2$$
+Newtoni II seadusest jõud: $F = ma = 10\cdot 4.2\cdot 10^5 = 4.2\cdot 10^6\ \text{N} = 4.2\ \text{MN}$.
+
+Rõhk on jõud pinnaühiku kohta, $p = \frac{F}{S}$, kus toru ristlõige $S = \frac{\pi d^2}{4}$ ($d = 0.075\ \text{m}$):
+$$p = \frac{F}{S} = \frac{4F}{\pi d^2} = \frac{4\cdot 4.2\cdot 10^6}{\pi\cdot 0.075^2} \approx 0.95\ \text{GPa}$$`,
   ans: R`4,2 MN; 0,95 GPa`
 });
 
@@ -94,8 +98,13 @@ P({ id: '96', b: 4, k: 'T',
     num(R`Vajalik jõud, kui tõmmatakse 4 kg keha:`, 6, 'N', { final: true, label: R`F`, hint: R`Kogu süsteem: $F = (m_1 + m_2)a$` }),
     num(R`Vajalik jõud, kui tõmmatakse hoopis 2 kg keha:`, 3, 'N', { final: true, label: R`F'`, hint: R`Nüüd veab niit 4 kg keha: $T = m_2a'$, $a' = 0.5\ \text{m/s}^2$`, ex: R`$a' = \frac{2}{4} = 0.5$, $F' = 6\cdot 0.5 = 3\ \text{N}$` })
   ],
-  sol: R`Tõmmates 4 kg keha: 2 kg keha kiirendab ainult niit, $T = m_1a \Rightarrow a = 1\ \text{m/s}^2$, $F = (m_1 + m_2)a = 6\ \text{N}$.<br>
-Tõmmates 2 kg keha: $T = m_2a' \Rightarrow a' = 0.5\ \text{m/s}^2$, $F' = (m_1 + m_2)a' = 3\ \text{N}$.`,
+  sol: R`Niit katkeb, kui tõmme $T = 2\ \text{N}$. Vaatame alati keha, millele mõjub ainult niit (Newtoni II seadus), siis kogu süsteemile $F = (m_1 + m_2)a$.
+
+<b>Tõmmatakse 4 kg keha.</b> 2 kg keha kiirendab ainult niit: $T = m_1a$, millest
+$$a = \frac{T}{m_1} = \frac{2}{2} = 1\ \text{m/s}^2, \qquad F = (m_1 + m_2)a = 6\cdot 1 = 6\ \text{N}$$
+
+<b>Tõmmatakse 2 kg keha.</b> Nüüd veab niit 4 kg keha: $T = m_2a'$, millest
+$$a' = \frac{T}{m_2} = \frac{2}{4} = 0.5\ \text{m/s}^2, \qquad F' = (m_1 + m_2)a' = 6\cdot 0.5 = 3\ \text{N}$$`,
   ans: R`3 N (kui tõmmata 2 kg keha) või 6 N (kui tõmmata 4 kg keha).`
 });
 
@@ -116,8 +125,12 @@ P({ id: '101', b: 4, k: 'T',
     num(R`Kergema ahvi kiirendus:`, 2.45, 'm/s²', { label: R`a_1`, hint: R`$m_1a_1 = T - m_1g$` }),
     num(R`Aeg, mille jooksul kergem ahv tõuseb 19,6 m:`, 4, 's', { final: true, label: R`t`, hint: R`$s_1 = \frac{a_1t^2}{2}$` })
   ],
-  sol: R`Raskem ahv on paigal: $T = m_2g$. Kergemale ahvile: $m_1a_1 = T - m_1g = (m_2 - m_1)g$,
-$$a_1 = \left(\frac{m_2}{m_1} - 1\right)g = 2.45\ \text{m/s}^2, \qquad t = \sqrt{\frac{2s_1}{a_1}} = 4\ \text{s}$$`,
+  sol: R`Raskem ahv püsib samal kõrgusel, seega tema kiirendus on null ja Newtoni II seadusest $T = m_2g$ (nööri tõmme on mõlemal pool sama).
+
+Kergemale ahvile (Newtoni II seadus, üles positiivne): $m_1a_1 = T - m_1g = m_2g - m_1g$:
+$$a_1 = \frac{(m_2 - m_1)g}{m_1} = \left(\frac{25}{20} - 1\right)9.8 = 2.45\ \text{m/s}^2$$
+Kergem ahv tõuseb paigalt, $s_1 = \frac{a_1t^2}{2}$, avaldame aja:
+$$t = \sqrt{\frac{2s_1}{a_1}} = \sqrt{\frac{2\cdot 19.6}{2.45}} = 4\ \text{s}$$`,
   ans: R`4,0 s`
 });
 
@@ -138,8 +151,10 @@ P({ id: '122', b: 4, k: 'T',
     num(R`Hõõrdejõud:`, 7840, 'N', { label: R`F_h`, hint: R`$F_h = \mu mg$, $m = 16000\ \text{kg}$` }),
     num(R`Vajalik jõud:`, 8231, 'N', { final: true, label: R`F_v` })
   ],
-  sol: R`$a = \frac{2s}{t^2} = 0.024\ \text{m/s}^2$. $ma = F_v - F_h$, $F_h = \mu mg$:
-$$F_v = m(a + \mu g) = 16000(0.024 + 0.49) = 8.2\ \text{kN}$$`,
+  sol: R`Paigalt alustades $s = \frac{at^2}{2}$, avaldame kiirenduse:
+$$a = \frac{2s}{t^2} = \frac{2\cdot 11}{30^2} \approx 0.024\ \text{m/s}^2$$
+Newtoni II seadus liikumise suunas: $ma = F_v - F_h$, kus hõõrdejõud $F_h = \mu mg$ ($\mu = 0.05$, $m = 16000\ \text{kg}$). Avaldame veojõu:
+$$F_v = m(a + \mu g) = 16000(0.024 + 0.05\cdot 9.8) = 16000\cdot 0.514 \approx 8.2\ \text{kN}$$`,
   ans: R`8,2 kN`,
   note: R`„5 % vaguni kaalust“ tähendab $F_h = 0.05\cdot mg$, s.t. hõõrdetegur $\mu = 0.05$ (nii ka konspektis).`
 });
@@ -163,9 +178,14 @@ P({ id: '124(1)', b: 4, k: 'T',
     mc(R`Plokki tõmbab niit kahes suunas: vasakule (horisontaalne osa) ja alla (vertikaalne osa). Kui suur on teljele mõjuv jõud?`, [R`*$F = T\sqrt2$, sest kaks võrdset ristuvat jõudu`, R`$F = 2T$||Jõud on risti, mitte samas suunas.`, R`$F = T$||Plokki tõmbavad niidi mõlemad pooled.`]),
     num(R`Ploki teljele mõjuv jõud:`, 2.08, 'N', { final: true, label: R`F` })
   ],
-  sol: R`A: $m_Aa = T - \mu m_Ag$, B: $m_Ba = m_Bg - T$. Liites:
+  sol: R`Newtoni II seadus mõlemale kehale (positiivne suund = liikumise suund). A liigub laual paremale, B langeb:
+$$\text{A:}\quad m_Aa = T - \mu m_Ag, \qquad \text{B:}\quad m_Ba = m_Bg - T$$
+Liidame võrrandid, siis $T$ kaob, ja avaldame kiirenduse ($\mu m_A = 0.05$):
 $$a = \frac{(m_B - \mu m_A)g}{m_A + m_B} = \frac{(0.3 - 0.05)\cdot 9.8}{0.5} = 4.9\ \text{m/s}^2$$
-$$T = m_B(g - a) = 0.3\cdot 4.9 = 1.5\ \text{N}, \qquad F = T\sqrt2 = 2.1\ \text{N}$$`,
+Tõmme B võrrandist (B liigub alla, seega $T = m_B(g - a)$, mitte $m_B(g + a)$):
+$$T = m_B(g - a) = 0.3\cdot 4.9 \approx 1.5\ \text{N}$$
+Niit tõmbab plokki kahes ristisuunas (horisontaalne ja vertikaalne osa, mõlemad $T$), seega teljele:
+$$F = T\sqrt2 = 1.5\sqrt2 \approx 2.1\ \text{N}$$`,
   ans: R`$T = 1.5\ \text{N}$, teljele $2.1\ \text{N}$.`
 });
 
@@ -182,9 +202,12 @@ P({ id: '126(1)', b: 4, k: 'T',
     ], '', '', { wide: true }),
     mc(R`$m_2$ hakkab laskuma, kui $a > 0$. Tingimus:`, [R`*$m_2 > m_1(\sin\alpha + \mu\cos\alpha)$`, R`$m_2 > m_1(\sin\alpha - \mu\cos\alpha)$||See on tingimus, et $m_1$ hakkaks alla libisema (osa 2).`, R`$m_2 > m_1$||Kaldpind ja hõõrdumine muudavad tingimust.`])
   ],
-  sol: R`$m_2$ liigub alla, $m_1$ üles. $m_1$-le mõjub piki kaldpinda alla $m_1g\sin\alpha$ ja hõõrdejõud $\mu m_1g\cos\alpha$, üles niidi tõmme $T$. $m_2$-le alla $m_2g$, üles $T$.
-$$(m_1 + m_2)a = m_2g - m_1g(\sin\alpha + \mu\cos\alpha)$$
-$a > 0$, kui $m_2 > m_1(\sin\alpha + \mu\cos\alpha)$.`,
+  sol: R`$m_2$ liigub alla, $m_1$ mööda kaldpinda üles. Raskusjõu komponendid (konspektist): piki kaldpinda $m_1g\sin\alpha$, risti pinnaga $m_1g\cos\alpha$, hõõrdejõud $\mu m_1g\cos\alpha$ (liikumisele vastu, s.t. alla).
+
+Newtoni II seadus süsteemile (positiivne: $m_2$ alla, $m_1$ üles), niidi tõmme $T$ taandub:
+$$(m_1 + m_2)a = m_2g - m_1g\sin\alpha - \mu m_1g\cos\alpha = m_2g - m_1g(\sin\alpha + \mu\cos\alpha)$$
+$m_2$ hakkab laskuma, kui $a > 0$, s.t. parem pool positiivne:
+$$m_2 > m_1(\sin\alpha + \mu\cos\alpha)$$`,
   ans: R`$m_2 > m_1(\sin\alpha + \mu\cos\alpha)$`
 });
 
@@ -196,7 +219,10 @@ P({ id: '94', b: 4, k: 'K',
     num(R`Kiirendus püssirauas:`, 78430, 'm/s²', { label: R`a`, hint: R`$a = \frac{v}{t}$, $t = 0.0051\ \text{s}$` }),
     num(R`Kuulile mõjuv jõud:`, 941, 'N', { final: true, label: R`F`, alts: [{ a: 941e3, msg: 'Mass tuleb võtta kilogrammides (0,012 kg).' }] })
   ],
-  sol: R`$a = \frac{v}{t} = 7.8\cdot 10^4\ \text{m/s}^2$, $F = ma = 0.012\cdot 7.8\cdot 10^4 = 0.94\ \text{kN}$.`,
+  sol: R`Kiirendus püssirauas on konstantne, $a = \frac{v}{t}$ ($t = 5.1\ \text{ms} = 0.0051\ \text{s}$):
+$$a = \frac{v}{t} = \frac{400}{0.0051} \approx 7.8\cdot 10^4\ \text{m/s}^2$$
+Newtoni II seadusest jõud ($m = 12\ \text{g} = 0.012\ \text{kg}$):
+$$F = ma = 0.012\cdot 7.8\cdot 10^4 \approx 0.94\ \text{kN}$$`,
   ans: R`0,94 kN`
 });
 
@@ -213,7 +239,10 @@ P({ id: '97', b: 4, k: 'K',
     mc(R`Raskem keha liigub alla. Kiirendus on:`, [R`*$a = \frac{(m_2 - m_1)g}{m_1 + m_2}$`, R`$a = \frac{(m_2 - m_1)g}{m_2}$||Kiirendatakse mõlemat keha.`, R`$a = g$||Teine keha takistab kukkumist.`]),
     num(R`Kiirendus:`, 0.891, 'm/s²', { final: true, label: R`a` })
   ],
-  sol: R`$m_2a = m_2g - T$, $m_1a = T - m_1g$. Liites: $a = \frac{(m_2 - m_1)g}{m_1 + m_2} = \frac{0.1\cdot 9.8}{1.1} = 0.89\ \text{m/s}^2$.`,
+  sol: R`Raskem keha ($m_2 = 0.6\ \text{kg}$) liigub alla, kergem ($m_1 = 0.5\ \text{kg}$) üles. Newtoni II seadus mõlemale:
+$$m_2a = m_2g - T, \qquad m_1a = T - m_1g$$
+Liidame, siis $T$ kaob, ja avaldame kiirenduse:
+$$a = \frac{(m_2 - m_1)g}{m_1 + m_2} = \frac{0.1\cdot 9.8}{1.1} \approx 0.89\ \text{m/s}^2$$`,
   ans: R`0,89 m/s²`
 });
 
@@ -226,7 +255,11 @@ P({ id: '100', b: 4, k: 'K',
     mc(R`Ploki teljele mõjuv jõud:`, [R`*$2T$, sest mõlemad pooled tõmbavad plokki alla`, R`$T$||Pael tõmbab plokki mõlemalt poolt.`, R`$(m_1 + m_2)g$||Süsteem liigub kiirendusega, seega mitte.`]),
     num(R`Jõud teljele:`, 47.04, 'N', { final: true, label: R`F` })
   ],
-  sol: R`$a = \frac{(m_2 - m_1)g}{m_1 + m_2} = 1.96\ \text{m/s}^2$, $T = m_1(g + a) = \frac{2m_1m_2g}{m_1 + m_2} = 23.5\ \text{N}$, teljele $2T = 47.1\ \text{N}$.`,
+  sol: R`Newtoni II seadus mõlemale kehale, liites saame kiirenduse ($m_1 = 2\ \text{kg}$, $m_2 = 3\ \text{kg}$):
+$$a = \frac{(m_2 - m_1)g}{m_1 + m_2} = \frac{1\cdot 9.8}{5} \approx 1.96\ \text{m/s}^2$$
+Kergem keha tõuseb kiirendusega, seega tõmme $T = m_1(g + a)$:
+$$T = m_1(g + a) = 2(9.8 + 1.96) \approx 23.5\ \text{N}$$
+Pael tõmbab plokki mõlemalt poolt alla, seega teljele $F = 2T = 47.1\ \text{N}$.`,
   ans: R`23,5 N; 47,1 N`
 });
 
@@ -243,7 +276,9 @@ P({ id: '118', b: 4, k: 'K',
     num(R`Kiirendus:`, 2, 'm/s²', { label: R`a` }),
     num(R`Veojõud:`, 4980, 'N', { final: true, label: R`F_v`, hint: R`$F_v = ma + F_h$`, alts: [{ a: 3020, msg: 'Hõõrdejõud tuleb juurde liita, mitte lahutada: veojõud peab ületama ka hõõrdumise.' }] })
   ],
-  sol: R`$a = \frac{v}{t} = 2\ \text{m/s}^2$, $ma = F_v - F_h \Rightarrow F_v = 4000 + 980 = 5.0\ \text{kN}$.`,
+  sol: R`Kiirendus paigalt alustades $a = \frac{v}{t} = \frac{10}{5} = 2\ \text{m/s}^2$ ($m = 2000\ \text{kg}$).
+<br>Newtoni II seadus liikumise suunas, veojõud peab ületama ka hõõrdumise ($ma = F_v - F_h$):
+$$F_v = ma + F_h = 2000\cdot 2 + 980 = 4000 + 980 = 5.0\ \text{kN}$$`,
   ans: R`5,0 kN`
 });
 
@@ -261,7 +296,10 @@ P({ id: '120', b: 4, k: 'K',
     num(R`Kiirenduse moodul:`, 0.125, 'm/s²', { label: R`a` }),
     num(R`Hõõrdetegur:`, 0.01276, '', { final: true, label: R`\mu`, hint: R`$\mu mg = ma$` })
   ],
-  sol: R`$a = \frac{2s}{t^2} = 0.125\ \text{m/s}^2$; $\mu mg = ma \Rightarrow \mu = \frac{a}{g} = 0.013$.`,
+  sol: R`Peatumine on nagu paigalt kiirenemine "tagurpidi", $s = \frac{at^2}{2}$, avaldame kiirenduse mooduli:
+$$a = \frac{2s}{t^2} = \frac{2\cdot 100}{40^2} = 0.125\ \text{m/s}^2$$
+Keha aeglustab ainult hõõrdejõud, Newtoni II seadus $\mu mg = ma$, mass taandub:
+$$\mu = \frac{a}{g} = \frac{0.125}{9.8} \approx 0.013$$`,
   ans: R`0,013`
 });
 
@@ -273,7 +311,10 @@ P({ id: '124(2)', b: 4, k: 'K',
     num(R`Niidi tõmme:`, 1.47, 'N', { final: true, label: R`T`, hint: R`$T = m_{ripub}(g - a)$` }),
     num(R`Ploki teljele mõjuv jõud:`, 2.08, 'N', { final: true, label: R`F` })
   ],
-  sol: R`$a = \frac{(0.2 - 0.25\cdot 0.3)\cdot 9.8}{0.5} = 2.45\ \text{m/s}^2$, $T = 0.2(9.8 - 2.45) = 1.5\ \text{N}$, $F = T\sqrt2 = 2.1\ \text{N}$.`,
+  sol: R`Nüüd on laual 300 g ja ripub 200 g. Sama skeem: liidame mõlema keha Newtoni II seaduse ja avaldame kiirenduse (ripuv $m = 0.2$, laual $0.3$):
+$$a = \frac{(m_{ripub} - \mu m_{laual})g}{m_A + m_B} = \frac{(0.2 - 0.25\cdot 0.3)\cdot 9.8}{0.5} = 2.45\ \text{m/s}^2$$
+Ripuv keha liigub alla, seega tõmme $T = m_{ripub}(g - a)$:
+$$T = 0.2(9.8 - 2.45) \approx 1.5\ \text{N}, \qquad F = T\sqrt2 \approx 2.1\ \text{N}$$`,
   ans: R`$T = 1.5\ \text{N}$, teljele $2.1\ \text{N}$.`
 });
 
@@ -288,7 +329,10 @@ P({ id: '126(2)', b: 4, k: 'K',
     ], '', '', { wide: true }),
     mc(R`Tingimus:`, [R`*$m_2 < m_1(\sin\alpha - \mu\cos\alpha)$`, R`$m_2 < m_1(\sin\alpha + \mu\cos\alpha)$||Siis võib süsteem ka paigale jääda: hõõrdumine töötab alati liikumise vastu.`])
   ],
-  sol: R`$m_1$ libiseb alla: $(m_1 + m_2)a = m_1g\sin\alpha - \mu m_1g\cos\alpha - m_2g$. $a > 0$, kui $m_2 < m_1(\sin\alpha - \mu\cos\alpha)$.`,
+  sol: R`$m_2$ tõuseb, seega $m_1$ libiseb mööda kaldpinda alla. Hõõrdejõud on nüüd suunatud üles (liikumisele vastu). Newtoni II seadus süsteemile (positiivne: $m_1$ alla, $m_2$ üles):
+$$(m_1 + m_2)a = m_1g\sin\alpha - \mu m_1g\cos\alpha - m_2g$$
+$m_2$ hakkab tõusma, kui $a > 0$:
+$$m_2 < m_1(\sin\alpha - \mu\cos\alpha)$$`,
   ans: R`$m_2 < m_1(\sin\alpha - \mu\cos\alpha)$`
 });
 
@@ -300,14 +344,17 @@ P({ id: '93', b: 4, k: 'S',
     num(R`Kiirus SI-ühikutes:`, 3.333, 'm/s', { label: R`v` }),
     num(R`Pidurdav jõud:`, 6000, 'N', { final: true, label: R`F` })
   ],
-  sol: R`$a = \frac{3.33}{5} = 0.667\ \text{m/s}^2$, $F = ma = 6.0\ \text{kN}$.`,
+  sol: R`Teisendame kiiruse: $12\ \text{km/h} = \frac{12}{3.6} \approx 3.33\ \text{m/s}$. Pidurduskiirenduse moodul $a = \frac{v}{t}$:
+$$a = \frac{3.33}{5} \approx 0.667\ \text{m/s}^2$$
+Pidurdav jõud Newtoni II seadusest ($m = 9000\ \text{kg}$): $F = ma = 9000\cdot 0.667 \approx 6.0\ \text{kN}$.`,
   ans: R`6,0 kN`
 });
 
 P({ id: '98', b: 4, k: 'S',
   text: R`Üle liikumatu ploki pandud niidi otste külge kinnitatakse kehad massiga 100 g ja 120 g. Kui suure kiirendusega hakkavad kehad liikuma?`,
   steps: [num(R`Kiirendus:`, 0.891, 'm/s²', { final: true, label: R`a`, hint: R`$a = \frac{(m_2 - m_1)g}{m_1 + m_2}$` })],
-  sol: R`$a = \frac{0.02\cdot 9.8}{0.22} = 0.89\ \text{m/s}^2$.`,
+  sol: R`Raskem keha liigub alla, kergem üles. Liites mõlema keha Newtoni II seaduse ($m_1 = 0.1\ \text{kg}$, $m_2 = 0.12\ \text{kg}$):
+$$a = \frac{(m_2 - m_1)g}{m_1 + m_2} = \frac{0.02\cdot 9.8}{0.22} \approx 0.89\ \text{m/s}^2$$`,
   ans: R`0,89 m/s²`
 });
 
@@ -318,14 +365,20 @@ P({ id: '99', b: 4, k: 'S',
     num(R`1) Kiirendus:`, 2.46, 'm/s²', { final: true, label: R`a_1`, hint: R`$m a_1 = F - mg$` }),
     num(R`2) Kiirendus:`, 1.09, 'm/s²', { final: true, label: R`a_2` })
   ],
-  sol: R`1) $a = \frac{9.81 - 7.84}{0.8} = 2.45\ \text{m/s}^2$. 2) $a = \frac{(1 - 0.8)g}{1.8} = 1.09\ \text{m/s}^2$.`,
+  sol: R`<b>1)</b> Teisest otsast tõmmatakse jõuga $F = 9.81\ \text{N}$ (see pole sama mis rippuv keha). Newtoni II seadus kehale ($m = 0.8\ \text{kg}$): $ma = F - mg$:
+$$a = \frac{F - mg}{m} = \frac{9.81 - 7.84}{0.8} \approx 2.45\ \text{m/s}^2$$
+<b>2)</b> Nüüd ripub teises otsas 1 kg keha, mida tuleb samuti kiirendada. Liites mõlema keha võrrandi:
+$$a = \frac{(1 - 0.8)g}{1 + 0.8} = \frac{0.2\cdot 9.8}{1.8} \approx 1.09\ \text{m/s}^2$$`,
   ans: R`2,45 m/s²; 1,09 m/s²`
 });
 
 P({ id: '119', b: 4, k: 'S',
   text: R`Vagun massiga 12 t hakkas tõuke mõjul liikuma kiirusega 5 m/s, kuid hõõrdejõu tõttu peatus 1 min pärast. Leidke hõõrdejõud.`,
   steps: [num(R`Hõõrdejõud:`, 1000, 'N', { final: true, label: R`F_h`, hint: R`$F_h = m\frac{v}{t}$, $t = 60\ \text{s}$` })],
-  sol: R`$a = \frac{5}{60}$, $F_h = 12000\cdot\frac{5}{60} = 1\ \text{kN}$.`,
+  sol: R`Keha aeglustab ainult hõõrdejõud. Aeglustuse moodul $a = \frac{v}{t}$ ($t = 1\ \text{min} = 60\ \text{s}$):
+$$a = \frac{5}{60}\ \text{m/s}^2$$
+Newtoni II seadus annab hõõrdejõu ($m = 12000\ \text{kg}$):
+$$F_h = ma = 12000\cdot\frac{5}{60} = 1\ \text{kN}$$`,
   ans: R`1 kN`
 });
 
@@ -335,7 +388,10 @@ P({ id: '121', b: 4, k: 'S',
     num(R`Pidurduskiirendus:`, 2.45, 'm/s²', { label: R`a`, hint: R`$ma = \mu mg$` }),
     num(R`Pidurdustee:`, 20.4, 'm', { final: true, label: R`s`, hint: R`$s = \frac{v^2}{2a}$, $v = 10\ \text{m/s}$` })
   ],
-  sol: R`$a = \mu g = 2.45$, $s = \frac{v^2}{2a} = \frac{100}{4.9} = 20\ \text{m}$.`,
+  sol: R`Pidurdav jõud on hõõrdejõud, $ma = \mu mg$, mass taandub:
+$$a = \mu g = 0.25\cdot 9.8 = 2.45\ \text{m/s}^2$$
+Kiirus $36\ \text{km/h} = 10\ \text{m/s}$. Pidurdustee konspekti valemist $v^2 = 2as$:
+$$s = \frac{v^2}{2a} = \frac{100}{4.9} \approx 20\ \text{m}$$`,
   ans: R`20 m`
 });
 
@@ -353,7 +409,10 @@ P({ id: '125', b: 4, k: 'S',
     mc(R`Kiirendus:`, [R`*$a = g(\sin\alpha - \mu\cos\alpha)$`, R`$a = g(\sin\alpha + \mu\cos\alpha)$||Hõõrdumine vähendab kiirendust.`, R`$a = g(\cos\alpha - \mu\sin\alpha)$||Siinus ja koosinus on vahetuses.`]),
     num(R`Arvuta:`, 4.05, 'm/s²', { final: true, label: R`a` })
   ],
-  sol: R`$ma = mg\sin\alpha - \mu mg\cos\alpha \Rightarrow a = 9.8(0.5 - 0.0866) = 4.1\ \text{m/s}^2$.`,
+  sol: R`Keha libiseb alla, hõõrdejõud suunatud üles. Newtoni II seadus piki kaldpinda ($mg\sin\alpha$ alla, hõõre $\mu mg\cos\alpha$ üles), mass taandub:
+$$ma = mg\sin\alpha - \mu mg\cos\alpha \Rightarrow a = g(\sin\alpha - \mu\cos\alpha)$$
+Asendame $\alpha = 30°$, $\mu = 0.1$:
+$$a = 9.8(0.5 - 0.1\cdot 0.866) = 9.8\cdot 0.413 \approx 4.1\ \text{m/s}^2$$`,
   ans: R`4,1 m/s²`
 });
 
